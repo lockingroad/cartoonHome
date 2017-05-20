@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C86B4B121ECFAE4400FCBA01 /* DFSegmentBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B0D1ECFAE4400FCBA01 /* DFSegmentBaseController.m */; };
+		C86B4B131ECFAE4400FCBA01 /* DFSegmentHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B0F1ECFAE4400FCBA01 /* DFSegmentHeadView.m */; };
+		C86B4B141ECFAE4400FCBA01 /* DFSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B111ECFAE4400FCBA01 /* DFSegmentView.m */; };
+		C86B4B181ECFAEB200FCBA01 /* EmptyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B171ECFAEB200FCBA01 /* EmptyVC.m */; };
+		C86B4B1B1ECFB07F00FCBA01 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B1A1ECFB07F00FCBA01 /* HomeVC.m */; };
+		C8ADF7C91ECE584700F05D10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7C81ECE584700F05D10 /* main.m */; };
+		C8ADF7CC1ECE584700F05D10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7CB1ECE584700F05D10 /* AppDelegate.m */; };
+		C8ADF7CF1ECE584700F05D10 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7CE1ECE584700F05D10 /* ViewController.m */; };
+		C8ADF7D21ECE584700F05D10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8ADF7D01ECE584700F05D10 /* Main.storyboard */; };
+		C8ADF7D41ECE584700F05D10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8ADF7D31ECE584700F05D10 /* Assets.xcassets */; };
+		C8ADF7D71ECE584700F05D10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8ADF7D51ECE584700F05D10 /* LaunchScreen.storyboard */; };
+		C8ADF7E11ECE5AAF00F05D10 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8ADF7E01ECE5AAF00F05D10 /* ViewController.xib */; };
+		C8ADF7EB1ECE662800F05D10 /* TJPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7EA1ECE662800F05D10 /* TJPSessionManager.m */; };
+		C8ADF7EE1ECE663200F05D10 /* TJPNetworkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7ED1ECE663200F05D10 /* TJPNetworkUtils.m */; };
+		C8ADF7F11ECE6D8400F05D10 /* CartoonsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7F01ECE6D8400F05D10 /* CartoonsInfo.m */; };
+		C8ADF7F41ECE717100F05D10 /* CartoonEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7F31ECE717100F05D10 /* CartoonEntity.m */; };
+		C8ADF7FF1ECE7A3800F05D10 /* CartoonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7FC1ECE7A3800F05D10 /* CartoonVC.m */; };
+		C8ADF8001ECE7A3800F05D10 /* CartoonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF7FE1ECE7A3800F05D10 /* CartoonManager.m */; };
+		C8ADF8061ECE870600F05D10 /* CartoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF8051ECE870600F05D10 /* CartoonCell.m */; };
+		C8ADF8111ECE88F000F05D10 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF80A1ECE88F000F05D10 /* NSString+Extension.m */; };
+		C8ADF8121ECE88F000F05D10 /* UIImage+bt_extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF80C1ECE88F000F05D10 /* UIImage+bt_extension.m */; };
+		C8ADF8131ECE88F000F05D10 /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF80E1ECE88F000F05D10 /* UIImageView+Extension.m */; };
+		C8ADF8141ECE88F000F05D10 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF8101ECE88F000F05D10 /* UILabel+Extension.m */; };
+		C8ADF8191ECE89B900F05D10 /* BTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADF8181ECE89B900F05D10 /* BTConst.m */; };
+		D7483D80BE8740F5C96DBAE0 /* libPods-CartoonHome1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B653EEB75C7D3758BBBFA214 /* libPods-CartoonHome1.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		572BDC17B7B46C616EFEC68E /* Pods-CartoonHome1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartoonHome1.release.xcconfig"; path = "Pods/Target Support Files/Pods-CartoonHome1/Pods-CartoonHome1.release.xcconfig"; sourceTree = "<group>"; };
+		B653EEB75C7D3758BBBFA214 /* libPods-CartoonHome1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CartoonHome1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C86B4B0C1ECFAE4400FCBA01 /* DFSegmentBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSegmentBaseController.h; sourceTree = "<group>"; };
+		C86B4B0D1ECFAE4400FCBA01 /* DFSegmentBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFSegmentBaseController.m; sourceTree = "<group>"; };
+		C86B4B0E1ECFAE4400FCBA01 /* DFSegmentHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSegmentHeadView.h; sourceTree = "<group>"; };
+		C86B4B0F1ECFAE4400FCBA01 /* DFSegmentHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFSegmentHeadView.m; sourceTree = "<group>"; };
+		C86B4B101ECFAE4400FCBA01 /* DFSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSegmentView.h; sourceTree = "<group>"; };
+		C86B4B111ECFAE4400FCBA01 /* DFSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFSegmentView.m; sourceTree = "<group>"; };
+		C86B4B161ECFAEB200FCBA01 /* EmptyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyVC.h; sourceTree = "<group>"; };
+		C86B4B171ECFAEB200FCBA01 /* EmptyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyVC.m; sourceTree = "<group>"; };
+		C86B4B191ECFB07F00FCBA01 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		C86B4B1A1ECFB07F00FCBA01 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		C8ADF7C41ECE584700F05D10 /* CartoonHome1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CartoonHome1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8ADF7C81ECE584700F05D10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8ADF7CA1ECE584700F05D10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C8ADF7CB1ECE584700F05D10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C8ADF7CD1ECE584700F05D10 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C8ADF7CE1ECE584700F05D10 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C8ADF7D11ECE584700F05D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8ADF7D31ECE584700F05D10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8ADF7D61ECE584700F05D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C8ADF7D81ECE584700F05D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8ADF7E01ECE5AAF00F05D10 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		C8ADF7E91ECE662800F05D10 /* TJPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPSessionManager.h; sourceTree = "<group>"; };
+		C8ADF7EA1ECE662800F05D10 /* TJPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPSessionManager.m; sourceTree = "<group>"; };
+		C8ADF7EC1ECE663200F05D10 /* TJPNetworkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPNetworkUtils.h; sourceTree = "<group>"; };
+		C8ADF7ED1ECE663200F05D10 /* TJPNetworkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPNetworkUtils.m; sourceTree = "<group>"; };
+		C8ADF7EF1ECE6D8400F05D10 /* CartoonsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "\U0010CartoonsInfo.h"; sourceTree = "<group>"; };
+		C8ADF7F01ECE6D8400F05D10 /* CartoonsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "\U0010CartoonsInfo.m"; sourceTree = "<group>"; };
+		C8ADF7F21ECE717100F05D10 /* CartoonEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartoonEntity.h; sourceTree = "<group>"; };
+		C8ADF7F31ECE717100F05D10 /* CartoonEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartoonEntity.m; sourceTree = "<group>"; };
+		C8ADF7FB1ECE7A3800F05D10 /* CartoonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartoonVC.h; sourceTree = "<group>"; };
+		C8ADF7FC1ECE7A3800F05D10 /* CartoonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartoonVC.m; sourceTree = "<group>"; };
+		C8ADF7FD1ECE7A3800F05D10 /* CartoonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartoonManager.h; sourceTree = "<group>"; };
+		C8ADF7FE1ECE7A3800F05D10 /* CartoonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartoonManager.m; sourceTree = "<group>"; };
+		C8ADF8041ECE870600F05D10 /* CartoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartoonCell.h; sourceTree = "<group>"; };
+		C8ADF8051ECE870600F05D10 /* CartoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartoonCell.m; sourceTree = "<group>"; };
+		C8ADF8081ECE88F000F05D10 /* BTCategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTCategoryHeader.h; sourceTree = "<group>"; };
+		C8ADF8091ECE88F000F05D10 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		C8ADF80A1ECE88F000F05D10 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		C8ADF80B1ECE88F000F05D10 /* UIImage+bt_extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+bt_extension.h"; sourceTree = "<group>"; };
+		C8ADF80C1ECE88F000F05D10 /* UIImage+bt_extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+bt_extension.m"; sourceTree = "<group>"; };
+		C8ADF80D1ECE88F000F05D10 /* UIImageView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Extension.h"; sourceTree = "<group>"; };
+		C8ADF80E1ECE88F000F05D10 /* UIImageView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
+		C8ADF80F1ECE88F000F05D10 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
+		C8ADF8101ECE88F000F05D10 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
+		C8ADF8151ECE896200F05D10 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C8ADF8161ECE89B900F05D10 /* BTMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTMacro.h; sourceTree = "<group>"; };
+		C8ADF8171ECE89B900F05D10 /* BTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTConst.h; sourceTree = "<group>"; };
+		C8ADF8181ECE89B900F05D10 /* BTConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTConst.m; sourceTree = "<group>"; };
+		E9F2E08798B8DAFB5BB90653 /* Pods-CartoonHome1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartoonHome1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CartoonHome1/Pods-CartoonHome1.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8ADF7C11ECE584700F05D10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7483D80BE8740F5C96DBAE0 /* libPods-CartoonHome1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A8342C973ABF80ACEF3A99A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9F2E08798B8DAFB5BB90653 /* Pods-CartoonHome1.debug.xcconfig */,
+				572BDC17B7B46C616EFEC68E /* Pods-CartoonHome1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9A77012332307A0724F6A96A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B653EEB75C7D3758BBBFA214 /* libPods-CartoonHome1.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C86B4B061ECFADAC00FCBA01 /* page */ = {
+			isa = PBXGroup;
+			children = (
+				C86B4B071ECFADB600FCBA01 /* home */,
+			);
+			name = page;
+			sourceTree = "<group>";
+		};
+		C86B4B071ECFADB600FCBA01 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7FB1ECE7A3800F05D10 /* CartoonVC.h */,
+				C8ADF7FC1ECE7A3800F05D10 /* CartoonVC.m */,
+				C8ADF7FD1ECE7A3800F05D10 /* CartoonManager.h */,
+				C8ADF7FE1ECE7A3800F05D10 /* CartoonManager.m */,
+				C8ADF8041ECE870600F05D10 /* CartoonCell.h */,
+				C8ADF8051ECE870600F05D10 /* CartoonCell.m */,
+				C86B4B161ECFAEB200FCBA01 /* EmptyVC.h */,
+				C86B4B171ECFAEB200FCBA01 /* EmptyVC.m */,
+				C86B4B191ECFB07F00FCBA01 /* HomeVC.h */,
+				C86B4B1A1ECFB07F00FCBA01 /* HomeVC.m */,
+			);
+			name = home;
+			sourceTree = "<group>";
+		};
+		C86B4B081ECFADEA00FCBA01 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF8161ECE89B900F05D10 /* BTMacro.h */,
+				C8ADF8171ECE89B900F05D10 /* BTConst.h */,
+				C8ADF8181ECE89B900F05D10 /* BTConst.m */,
+				C8ADF8151ECE896200F05D10 /* PrefixHeader.pch */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
+		C86B4B091ECFAE0C00FCBA01 /* smallLib */ = {
+			isa = PBXGroup;
+			children = (
+				C86B4B0B1ECFAE4400FCBA01 /* DFSegement */,
+				C86B4B0A1ECFAE2600FCBA01 /* netLib */,
+			);
+			name = smallLib;
+			sourceTree = "<group>";
+		};
+		C86B4B0A1ECFAE2600FCBA01 /* netLib */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7EC1ECE663200F05D10 /* TJPNetworkUtils.h */,
+				C8ADF7ED1ECE663200F05D10 /* TJPNetworkUtils.m */,
+				C8ADF7E91ECE662800F05D10 /* TJPSessionManager.h */,
+				C8ADF7EA1ECE662800F05D10 /* TJPSessionManager.m */,
+			);
+			name = netLib;
+			sourceTree = "<group>";
+		};
+		C86B4B0B1ECFAE4400FCBA01 /* DFSegement */ = {
+			isa = PBXGroup;
+			children = (
+				C86B4B0C1ECFAE4400FCBA01 /* DFSegmentBaseController.h */,
+				C86B4B0D1ECFAE4400FCBA01 /* DFSegmentBaseController.m */,
+				C86B4B0E1ECFAE4400FCBA01 /* DFSegmentHeadView.h */,
+				C86B4B0F1ECFAE4400FCBA01 /* DFSegmentHeadView.m */,
+				C86B4B101ECFAE4400FCBA01 /* DFSegmentView.h */,
+				C86B4B111ECFAE4400FCBA01 /* DFSegmentView.m */,
+			);
+			path = DFSegement;
+			sourceTree = "<group>";
+		};
+		C86B4B151ECFAE5500FCBA01 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7EF1ECE6D8400F05D10 /* CartoonsInfo.h */,
+				C8ADF7F01ECE6D8400F05D10 /* CartoonsInfo.m */,
+				C8ADF7F21ECE717100F05D10 /* CartoonEntity.h */,
+				C8ADF7F31ECE717100F05D10 /* CartoonEntity.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		C8ADF7BB1ECE584700F05D10 = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7C61ECE584700F05D10 /* CartoonHome1 */,
+				C8ADF7C51ECE584700F05D10 /* Products */,
+				3A8342C973ABF80ACEF3A99A /* Pods */,
+				9A77012332307A0724F6A96A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C8ADF7C51ECE584700F05D10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7C41ECE584700F05D10 /* CartoonHome1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8ADF7C61ECE584700F05D10 /* CartoonHome1 */ = {
+			isa = PBXGroup;
+			children = (
+				C86B4B151ECFAE5500FCBA01 /* model */,
+				C86B4B091ECFAE0C00FCBA01 /* smallLib */,
+				C86B4B081ECFADEA00FCBA01 /* other */,
+				C86B4B061ECFADAC00FCBA01 /* page */,
+				C8ADF8071ECE88F000F05D10 /* extension */,
+				C8ADF7CA1ECE584700F05D10 /* AppDelegate.h */,
+				C8ADF7CB1ECE584700F05D10 /* AppDelegate.m */,
+				C8ADF7CD1ECE584700F05D10 /* ViewController.h */,
+				C8ADF7CE1ECE584700F05D10 /* ViewController.m */,
+				C8ADF7D01ECE584700F05D10 /* Main.storyboard */,
+				C8ADF7D31ECE584700F05D10 /* Assets.xcassets */,
+				C8ADF7D51ECE584700F05D10 /* LaunchScreen.storyboard */,
+				C8ADF7D81ECE584700F05D10 /* Info.plist */,
+				C8ADF7C71ECE584700F05D10 /* Supporting Files */,
+				C8ADF7E01ECE5AAF00F05D10 /* ViewController.xib */,
+			);
+			path = CartoonHome1;
+			sourceTree = "<group>";
+		};
+		C8ADF7C71ECE584700F05D10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7C81ECE584700F05D10 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8ADF8071ECE88F000F05D10 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF8081ECE88F000F05D10 /* BTCategoryHeader.h */,
+				C8ADF8091ECE88F000F05D10 /* NSString+Extension.h */,
+				C8ADF80A1ECE88F000F05D10 /* NSString+Extension.m */,
+				C8ADF80B1ECE88F000F05D10 /* UIImage+bt_extension.h */,
+				C8ADF80C1ECE88F000F05D10 /* UIImage+bt_extension.m */,
+				C8ADF80D1ECE88F000F05D10 /* UIImageView+Extension.h */,
+				C8ADF80E1ECE88F000F05D10 /* UIImageView+Extension.m */,
+				C8ADF80F1ECE88F000F05D10 /* UILabel+Extension.h */,
+				C8ADF8101ECE88F000F05D10 /* UILabel+Extension.m */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8ADF7C31ECE584700F05D10 /* CartoonHome1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8ADF7DB1ECE584700F05D10 /* Build configuration list for PBXNativeTarget "CartoonHome1" */;
+			buildPhases = (
+				EB7260985A4EF9FB9C747619 /* [CP] Check Pods Manifest.lock */,
+				C8ADF7C01ECE584700F05D10 /* Sources */,
+				C8ADF7C11ECE584700F05D10 /* Frameworks */,
+				C8ADF7C21ECE584700F05D10 /* Resources */,
+				955CD4334D31E5813AF73D2D /* [CP] Embed Pods Frameworks */,
+				6644F18E84194095FCA54063 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CartoonHome1;
+			productName = CartoonHome1;
+			productReference = C8ADF7C41ECE584700F05D10 /* CartoonHome1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8ADF7BC1ECE584700F05D10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "刘然";
+				TargetAttributes = {
+					C8ADF7C31ECE584700F05D10 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C8ADF7BF1ECE584700F05D10 /* Build configuration list for PBXProject "CartoonHome1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8ADF7BB1ECE584700F05D10;
+			productRefGroup = C8ADF7C51ECE584700F05D10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8ADF7C31ECE584700F05D10 /* CartoonHome1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8ADF7C21ECE584700F05D10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8ADF7D71ECE584700F05D10 /* LaunchScreen.storyboard in Resources */,
+				C8ADF7D41ECE584700F05D10 /* Assets.xcassets in Resources */,
+				C8ADF7E11ECE5AAF00F05D10 /* ViewController.xib in Resources */,
+				C8ADF7D21ECE584700F05D10 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6644F18E84194095FCA54063 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CartoonHome1/Pods-CartoonHome1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		955CD4334D31E5813AF73D2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CartoonHome1/Pods-CartoonHome1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB7260985A4EF9FB9C747619 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8ADF7C01ECE584700F05D10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C86B4B121ECFAE4400FCBA01 /* DFSegmentBaseController.m in Sources */,
+				C8ADF8061ECE870600F05D10 /* CartoonCell.m in Sources */,
+				C8ADF7CF1ECE584700F05D10 /* ViewController.m in Sources */,
+				C86B4B131ECFAE4400FCBA01 /* DFSegmentHeadView.m in Sources */,
+				C8ADF8141ECE88F000F05D10 /* UILabel+Extension.m in Sources */,
+				C8ADF7CC1ECE584700F05D10 /* AppDelegate.m in Sources */,
+				C8ADF8191ECE89B900F05D10 /* BTConst.m in Sources */,
+				C8ADF7C91ECE584700F05D10 /* main.m in Sources */,
+				C86B4B141ECFAE4400FCBA01 /* DFSegmentView.m in Sources */,
+				C8ADF7F11ECE6D8400F05D10 /* CartoonsInfo.m in Sources */,
+				C8ADF8111ECE88F000F05D10 /* NSString+Extension.m in Sources */,
+				C8ADF8131ECE88F000F05D10 /* UIImageView+Extension.m in Sources */,
+				C86B4B181ECFAEB200FCBA01 /* EmptyVC.m in Sources */,
+				C86B4B1B1ECFB07F00FCBA01 /* HomeVC.m in Sources */,
+				C8ADF7F41ECE717100F05D10 /* CartoonEntity.m in Sources */,
+				C8ADF7FF1ECE7A3800F05D10 /* CartoonVC.m in Sources */,
+				C8ADF7EE1ECE663200F05D10 /* TJPNetworkUtils.m in Sources */,
+				C8ADF7EB1ECE662800F05D10 /* TJPSessionManager.m in Sources */,
+				C8ADF8001ECE7A3800F05D10 /* CartoonManager.m in Sources */,
+				C8ADF8121ECE88F000F05D10 /* UIImage+bt_extension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C8ADF7D01ECE584700F05D10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8ADF7D11ECE584700F05D10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C8ADF7D51ECE584700F05D10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8ADF7D61ECE584700F05D10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8ADF7D91ECE584700F05D10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8ADF7DA1ECE584700F05D10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8ADF7DC1ECE584700F05D10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F2E08798B8DAFB5BB90653 /* Pods-CartoonHome1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CartoonHome1/PrefixHeader.pch";
+				INFOPLIST_FILE = CartoonHome1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.killer.CartoonHome1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8ADF7DD1ECE584700F05D10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 572BDC17B7B46C616EFEC68E /* Pods-CartoonHome1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CartoonHome1/PrefixHeader.pch";
+				INFOPLIST_FILE = CartoonHome1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.killer.CartoonHome1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8ADF7BF1ECE584700F05D10 /* Build configuration list for PBXProject "CartoonHome1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8ADF7D91ECE584700F05D10 /* Debug */,
+				C8ADF7DA1ECE584700F05D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8ADF7DB1ECE584700F05D10 /* Build configuration list for PBXNativeTarget "CartoonHome1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8ADF7DC1ECE584700F05D10 /* Debug */,
+				C8ADF7DD1ECE584700F05D10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8ADF7BC1ECE584700F05D10 /* Project object */;
+}
