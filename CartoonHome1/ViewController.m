@@ -84,7 +84,14 @@
 
 - (IBAction)btn3:(id)sender {
     
-    [self.navigationController pushViewController:[[HomeVC alloc]init] animated:NO];
+//    [self.navigationController pushViewController:[[HomeVC alloc]init] animated:NO];
+
+    HomeVC *home=[[HomeVC alloc]init];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:home];
+    [self presentViewController:nav animated:NO completion:^{
+        
+        
+    }];
     
     
 }

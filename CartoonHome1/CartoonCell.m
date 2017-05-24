@@ -59,9 +59,11 @@
 }
 -(void)setInfo:(CartoonsInfo *)info
 {
+    
     _info=info;
     NSLog(@"img%@",info.picbookapiimg);
     [self.imgView fadeImageWithUrl:info.picbookapiimg];
+    
     self.label.text=info.picbookname;
     
 }

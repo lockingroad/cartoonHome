@@ -15,11 +15,7 @@
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,assign)NSInteger page;
-
 @end
-
-
-
 @implementation CartoonVC
 
 
@@ -32,22 +28,52 @@
 -(void)setupSubView
 {
     [self.view addSubview:self.tableView];
+    __unsafe_unretained UITableView *tableView=self.tableView;
+    __weak typeof(self)weakSelf=self;
+    tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf loadDataFromStart:YES];
+        
+        
+    }];
+    tableView.mj_footer=[MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf loadDataFromStart:NO];
+        
+    }];
 }
 -(void)loadData{
-    NSLog(@"进入了嗯");
-    [CartoonManager getCartoonEntity:0 successHandler:^(CartoonEntity *entity) {
+
+    [self loadDataFromStart:YES];
+}
+
+-(void)loadDataFromStart:(BOOL)boolean
+{
+    if(boolean){
+        self.page=1;
+    }
+    [CartoonManager getCartoonEntity:self.page successHandler:^(CartoonEntity *entity) {
         NSLog(@"num%ld",entity.data.count);
+        if(boolean){
+            [self.dataArray removeAllObjects];
+        }
         
+        if(entity.data.count==0){
+            return ;
+        }
         [self.dataArray addObjectsFromArray:entity.data];
-        NSLog(@"num%ld",_dataArray.count);
         [self.tableView setHidden:NO];
         [self.tableView reloadData];
-        
+        self.page++;
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
     } failureHandler:^(NSError *error) {
         NSLog(@"失败了");
         
     }];
+    
+    
 }
+
+
 
 -(UITableView *)tableView
 {
@@ -58,7 +84,7 @@
         _tableView.separatorStyle=UITableViewCellAccessoryNone;
         _tableView.showsVerticalScrollIndicator=NO;
         _tableView.rowHeight=264;
-        _tableView.height-=49;
+//        _tableView.height-=49;
         [_tableView setHidden:YES];
     }
     return _tableView;

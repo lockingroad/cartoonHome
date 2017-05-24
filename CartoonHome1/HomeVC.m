@@ -13,7 +13,7 @@
 #import "CartoonVC.h"
 #import "EmptyVC.h"
 @interface HomeVC ()<DFSegmentViewDelegate>
-
+@property(nonatomic,strong)NSMutableArray *arrData;
 @end
 
 @implementation HomeVC
@@ -21,23 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    DFSegmentView *segment = [[DFSegmentView alloc] initWithFrame:CGRectZero andDelegate:self andTitlArr:@[@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你",@"你撒你"]];
+    DFSegmentView *segment = [[DFSegmentView alloc] initWithFrame:CGRectZero andDelegate:self andTitlArr:nil];
     
-    //    DFSegmentView *segment = [DFSegmentView new];
-    
-//    segment.backgroundColor = [UIColor redColor];
     
     [self.view addSubview:segment];
     
     [segment mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(164);
+        make.top.equalTo(self.view);
         
         make.left.right.bottom.equalTo(self.view);
     }];
     
     segment.delegate = self;
     
-    segment.reloadTitleArr = @[@"aaa",@"qqq",@"bbb",@"ccc",@"ddd",@"eee",@"fff",@"bbb",@"bbb",@"bbb"];
+    
+    segment.reloadTitleArr = self.arrData;
+//    segment.reloadTitleArr=@[@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新"];
+    
     segment.tintColor=[UIColor blackColor];
     segment.headViewLinelColor=[UIColor redColor];
     segment.headViewTextLabelColor=[UIColor greenColor];
@@ -45,6 +45,8 @@
     
     [segment reloadData];
     self.view.backgroundColor=[UIColor yellowColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:[UIColor redColor] size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 - (UIViewController *)superViewController {
@@ -54,13 +56,16 @@
 
 - (UIViewController *)subViewControllerWithIndex:(NSInteger)index {
     
-    DFSegmentBaseController *baseVC = [DFSegmentBaseController new];
-    
-    baseVC.index = [NSString stringWithFormat:@"第%ld页",index];
-    
-    return baseVC;
+    CartoonVC *cartoon=[[CartoonVC alloc]init];
+    return cartoon;
 }
-
+-(NSMutableArray *)arrData
+{
+    if(!_arrData){
+        _arrData=[[NSMutableArray alloc]initWithObjects:@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新",nil];
+    }
+    return _arrData;
+}
 
 - (void)headTitleSelectWithIndex:(NSInteger)index {
     
