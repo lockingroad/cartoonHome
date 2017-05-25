@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82A1D4F1ED64E1D00D057F5 /* DetailEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A1D4E1ED64E1D00D057F5 /* DetailEntity.m */; };
+		C82A1D551ED653DD00D057F5 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A1D541ED653DD00D057F5 /* DetailVC.m */; };
+		C82A1D581ED659C400D057F5 /* DetailBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A1D571ED659C400D057F5 /* DetailBasicCell.m */; };
+		C82A1D5B1ED6607C00D057F5 /* DetailWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C82A1D5A1ED6607C00D057F5 /* DetailWebCell.m */; };
 		C86B4B121ECFAE4400FCBA01 /* DFSegmentBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B0D1ECFAE4400FCBA01 /* DFSegmentBaseController.m */; };
 		C86B4B131ECFAE4400FCBA01 /* DFSegmentHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B0F1ECFAE4400FCBA01 /* DFSegmentHeadView.m */; };
 		C86B4B141ECFAE4400FCBA01 /* DFSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B4B111ECFAE4400FCBA01 /* DFSegmentView.m */; };
@@ -37,6 +41,15 @@
 /* Begin PBXFileReference section */
 		572BDC17B7B46C616EFEC68E /* Pods-CartoonHome1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartoonHome1.release.xcconfig"; path = "Pods/Target Support Files/Pods-CartoonHome1/Pods-CartoonHome1.release.xcconfig"; sourceTree = "<group>"; };
 		B653EEB75C7D3758BBBFA214 /* libPods-CartoonHome1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CartoonHome1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82A1D4B1ED63EE300D057F5 /* FZLT_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZLT_Light.ttf; sourceTree = "<group>"; };
+		C82A1D4D1ED64E1D00D057F5 /* DetailEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailEntity.h; sourceTree = "<group>"; };
+		C82A1D4E1ED64E1D00D057F5 /* DetailEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailEntity.m; sourceTree = "<group>"; };
+		C82A1D531ED653DD00D057F5 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		C82A1D541ED653DD00D057F5 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+		C82A1D561ED659C400D057F5 /* DetailBasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBasicCell.h; sourceTree = "<group>"; };
+		C82A1D571ED659C400D057F5 /* DetailBasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBasicCell.m; sourceTree = "<group>"; };
+		C82A1D591ED6607C00D057F5 /* DetailWebCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWebCell.h; sourceTree = "<group>"; };
+		C82A1D5A1ED6607C00D057F5 /* DetailWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWebCell.m; sourceTree = "<group>"; };
 		C86B4B0C1ECFAE4400FCBA01 /* DFSegmentBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSegmentBaseController.h; sourceTree = "<group>"; };
 		C86B4B0D1ECFAE4400FCBA01 /* DFSegmentBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFSegmentBaseController.m; sourceTree = "<group>"; };
 		C86B4B0E1ECFAE4400FCBA01 /* DFSegmentHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFSegmentHeadView.h; sourceTree = "<group>"; };
@@ -117,16 +130,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C853273A1ED4EB8D00422F0D /* New Group */ = {
+		C82A1D4C1ED64C9400D057F5 /* detail */ = {
 			isa = PBXGroup;
 			children = (
+				C82A1D531ED653DD00D057F5 /* DetailVC.h */,
+				C82A1D541ED653DD00D057F5 /* DetailVC.m */,
+				C82A1D561ED659C400D057F5 /* DetailBasicCell.h */,
+				C82A1D571ED659C400D057F5 /* DetailBasicCell.m */,
+				C82A1D591ED6607C00D057F5 /* DetailWebCell.h */,
+				C82A1D5A1ED6607C00D057F5 /* DetailWebCell.m */,
 			);
-			name = "New Group";
+			name = detail;
+			sourceTree = "<group>";
+		};
+		C853273A1ED4EB8D00422F0D /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				C8ADF7FD1ECE7A3800F05D10 /* CartoonManager.h */,
+				C8ADF7FE1ECE7A3800F05D10 /* CartoonManager.m */,
+			);
+			name = manager;
 			sourceTree = "<group>";
 		};
 		C86B4B061ECFADAC00FCBA01 /* page */ = {
 			isa = PBXGroup;
 			children = (
+				C82A1D4C1ED64C9400D057F5 /* detail */,
 				C86B4B071ECFADB600FCBA01 /* home */,
 			);
 			name = page;
@@ -137,8 +166,6 @@
 			children = (
 				C8ADF7FB1ECE7A3800F05D10 /* CartoonVC.h */,
 				C8ADF7FC1ECE7A3800F05D10 /* CartoonVC.m */,
-				C8ADF7FD1ECE7A3800F05D10 /* CartoonManager.h */,
-				C8ADF7FE1ECE7A3800F05D10 /* CartoonManager.m */,
 				C8ADF8041ECE870600F05D10 /* CartoonCell.h */,
 				C8ADF8051ECE870600F05D10 /* CartoonCell.m */,
 				C86B4B161ECFAEB200FCBA01 /* EmptyVC.h */,
@@ -200,6 +227,8 @@
 				C8ADF7F01ECE6D8400F05D10 /* CartoonsInfo.m */,
 				C8ADF7F21ECE717100F05D10 /* CartoonEntity.h */,
 				C8ADF7F31ECE717100F05D10 /* CartoonEntity.m */,
+				C82A1D4D1ED64E1D00D057F5 /* DetailEntity.h */,
+				C82A1D4E1ED64E1D00D057F5 /* DetailEntity.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -225,7 +254,8 @@
 		C8ADF7C61ECE584700F05D10 /* CartoonHome1 */ = {
 			isa = PBXGroup;
 			children = (
-				C853273A1ED4EB8D00422F0D /* New Group */,
+				C82A1D4B1ED63EE300D057F5 /* FZLT_Light.ttf */,
+				C853273A1ED4EB8D00422F0D /* manager */,
 				C86B4B151ECFAE5500FCBA01 /* model */,
 				C86B4B091ECFAE0C00FCBA01 /* smallLib */,
 				C86B4B081ECFADEA00FCBA01 /* other */,
@@ -403,11 +433,15 @@
 				C86B4B141ECFAE4400FCBA01 /* DFSegmentView.m in Sources */,
 				C8ADF7F11ECE6D8400F05D10 /* CartoonsInfo.m in Sources */,
 				C8ADF8111ECE88F000F05D10 /* NSString+Extension.m in Sources */,
+				C82A1D551ED653DD00D057F5 /* DetailVC.m in Sources */,
 				C8ADF8131ECE88F000F05D10 /* UIImageView+Extension.m in Sources */,
 				C86B4B181ECFAEB200FCBA01 /* EmptyVC.m in Sources */,
 				C86B4B1B1ECFB07F00FCBA01 /* HomeVC.m in Sources */,
+				C82A1D581ED659C400D057F5 /* DetailBasicCell.m in Sources */,
 				C8ADF7F41ECE717100F05D10 /* CartoonEntity.m in Sources */,
 				C8ADF7FF1ECE7A3800F05D10 /* CartoonVC.m in Sources */,
+				C82A1D4F1ED64E1D00D057F5 /* DetailEntity.m in Sources */,
+				C82A1D5B1ED6607C00D057F5 /* DetailWebCell.m in Sources */,
 				C8ADF7EE1ECE663200F05D10 /* TJPNetworkUtils.m in Sources */,
 				C8ADF7EB1ECE662800F05D10 /* TJPSessionManager.m in Sources */,
 				C8ADF8001ECE7A3800F05D10 /* CartoonManager.m in Sources */,

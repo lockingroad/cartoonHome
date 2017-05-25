@@ -10,6 +10,7 @@
 #import "CartoonEntity.h"
 #import <RXApiServiceEngine.h>
 #import "CartoonEntity.h"
+#import "DetailEntity.h"
 #import <MJExtension.h>
 
 @implementation CartoonManager
@@ -33,5 +34,21 @@
         
     }];
     
+}
+
++(void)getDetailEntity:(NSString *)cartoonID token:(NSString *)token successHandler:(void(^)(DetailEntity *))success failureHandler:(FailureHandler)failure
+{
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    [params setObject:@"167" forKey:@"id"];
+    [params setObject:@"1" forKey:@"page"];
+    [params setObject:@"ollgmVe1rygK+jTQiwsMog==" forKey:@"token"];
+
+    [RXApiServiceEngine requestWithType:RequestMethodTypePost url:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/contents.php?ac=content_view" parameters:params completionHanlder:^(id jsonData, NSError *error) {
+        if(jsonData){
+            DetailEntity *entity=[DetailEntity mj_objectWithKeyValues:jsonData[@"data"]];
+            success(entity);
+        }
+        
+    }];
 }
 @end

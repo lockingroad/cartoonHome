@@ -41,18 +41,45 @@
         }];
         
         
+        
+        UIView *bottomView=[[UIView alloc]init];
+        [self.contentView addSubview:bottomView];
+        bottomView.backgroundColor=kUIColorFromRGBA(0x000000, 0.5);
+        
+        [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+           
+            make.left.right.mas_equalTo(self.contentView);
+            make.height.mas_equalTo(@30);
+            make.bottom.mas_equalTo(self.imgView).offset(0);
+            
+        }];
+        
         UILabel *titleLabel=[[UILabel alloc]init];
         titleLabel.font=BTFont(16);
         titleLabel.textAlignment=NSTextAlignmentLeft;
-        titleLabel.textColor=kUIColorFromRGB(0x777777);
-        [self.contentView addSubview:titleLabel];
+        titleLabel.textColor=kUIColorFromRGB(0xffffff);
+        [bottomView addSubview:titleLabel];
         self.label=titleLabel;
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.contentView);
-            make.top.mas_equalTo(self.imgView.mas_bottom);
-            make.size.mas_equalTo(CGSizeMake(kScreen_Width, 36));
+            
+            make.centerY.mas_equalTo(bottomView.centerY);
+            make.left.mas_equalTo(bottomView.left).with.offset(10);
+        }];
+        
+        UILabel *levelLable=[[UILabel alloc]init];
+    
+        
+    
+        levelLable.font=[UIFont systemFontOfSize:11];
+        levelLable.textColor=kUIColorFromRGB(0xffffff);
+        [bottomView addSubview:levelLable];
+        levelLable.text=@"难度系数";
+        [levelLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(bottomView);
+            make.right.mas_equalTo(bottomView).with.offset(-20);
             
         }];
+
     }
     return self;
     

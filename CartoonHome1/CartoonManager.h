@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CartoonEntity;
+@class CartoonEntity,DetailEntity;
+
 typedef void (^CompleteHandler)(NSArray *dataArray,NSError *error);
 typedef void (^FailureHandler)(NSError *error);
 @interface CartoonManager : NSObject
@@ -15,6 +16,9 @@ typedef void (^FailureHandler)(NSError *error);
 +(void)getCartoonEntity:(NSInteger)page
          successHandler:(void(^)(CartoonEntity *entity))success
          failureHandler:(FailureHandler)failure;
-
++(void)getDetailEntity:(NSString *)cartoonID
+                 token:(NSString *)token
+        successHandler:(void(^)(DetailEntity *entity))success
+        failureHandler:(FailureHandler)failure;
 
 @end

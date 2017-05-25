@@ -7,10 +7,10 @@
 //
 
 #import "CartoonVC.h"
-#import "CartoonManager.h"
 #import "CartoonEntity.h"
 #import "CartoonCell.h"
 #import "CartoonsInfo.h"
+#import "DetailVC.h"
 @interface CartoonVC()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
@@ -114,5 +114,12 @@
         _dataArray=[NSMutableArray array];
     }
     return _dataArray;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailVC *detail=[[DetailVC alloc]init];
+    [self.navigationController pushViewController:detail animated:NO];
+    
 }
 @end
