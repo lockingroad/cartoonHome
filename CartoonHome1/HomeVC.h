@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^bloLeft)();
+typedef void (^bloRight)();
 @interface HomeVC : UIViewController
-
+@property(nonatomic,copy)bloLeft mBloLeft;
+@property(nonatomic,copy)bloRight mBloRight;
 @end

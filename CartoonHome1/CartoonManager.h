@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CartoonEntity,DetailEntity;
+@class CartoonEntity,DetailEntity,CommentEntity;
 
 typedef void (^CompleteHandler)(NSArray *dataArray,NSError *error);
 typedef void (^FailureHandler)(NSError *error);
@@ -20,5 +20,7 @@ typedef void (^FailureHandler)(NSError *error);
                  token:(NSString *)token
         successHandler:(void(^)(DetailEntity *entity))success
         failureHandler:(FailureHandler)failure;
-
++(void)getComments:(NSInteger)page
+    successHandler:(void(^)(CommentEntity *entity))success
+    failureHandler:(FailureHandler)failure;
 @end

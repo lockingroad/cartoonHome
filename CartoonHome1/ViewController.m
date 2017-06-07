@@ -14,6 +14,10 @@
 #import "CartoonEntity.h"
 #import "CartoonVC.h"
 #import "HomeVC.h"
+#import "HeadViewVC.h"
+#import "TJPStarScoreView.h"
+
+#import "MineViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
@@ -26,12 +30,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _tjpManager=[[TJPSessionManager alloc]init];
+    
+    
+    TJPStarScoreView *scoreView = [[TJPStarScoreView alloc] initWithFrame:CGRectMake(kScreenWidth - (kScoreViewW + 11), 200, kScoreViewW, 16) numberOfStarCount:5];
+    //        scoreView.backgroundColor = kRedColor;
+    scoreView.isNeedTouch = NO;
+    [self.view addSubview:scoreView];
+    
+    [scoreView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(@70);
+        make.height.mas_equalTo(@40);
+        make.right.mas_equalTo(self.view);
+        make.centerY.mas_equalTo(self.view);
+    }];
+    
+    scoreView.backgroundColor=[UIColor redColor];
+    
+    self.view.backgroundColor=[UIColor whiteColor];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 - (IBAction)btn1:(id)sender {
@@ -88,16 +111,47 @@
 
     HomeVC *home=[[HomeVC alloc]init];
     UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:home];
-    [self presentViewController:nav animated:NO completion:^{
+    RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:[[MineViewController alloc]init]];
+    sideMenu.view.backgroundColor=[UIColor whiteColor];
+    sideMenu.delegate=self;
+    sideMenu.contentViewShadowEnabled=NO;
+    sideMenu.scaleContentView=NO;
+    sideMenu.contentViewInPortraitOffsetCenterX=130.f;
+    sideMenu.bouncesHorizontally=NO;
+    [self presentViewController:sideMenu animated:NO completion:^{
         
         
     }];
-    
-    
+    home.mBloRight=^{
+        [sideMenu presentRightMenuViewController];
+    };
+    home.mBloLeft = ^{
+      //点击右键了
+        
+    };
 }
 - (IBAction)btn4:(id)sender {
     NSLog(@"开始显示了图片下载");
     [self.mImg fadeImageWithUrl:@"http://www.huibenabc.com/app/neahow/huibenapiimg/20170428125504.jpg"];
+}
+
+- (IBAction)clickHeadView:(id)sender {
+    HeadViewVC *headViewVC=[[HeadViewVC alloc]init];
+//    [self presentViewController:headViewVC animated:YES completion:^{
+//        
+//        
+//    }];
+//    
+//    RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:[[HomeVC alloc]init] leftMenuViewController:nil rightMenuViewController:[[MineViewController alloc]init]];
+//    [self presentViewController:sideMenu animated:NO completion:^{
+//        
+//        
+//    }];
+    
+    
+    [self.navigationController pushViewController:headViewVC animated:headViewVC];
+    
+    
 }
 
 @end

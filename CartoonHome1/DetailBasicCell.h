@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DetailEntity.h"
 @interface DetailBasicCell : UITableViewCell
 @property(nonatomic,weak)UILabel *title;
 @property(nonatomic,weak)UILabel *yearOld;
+@property(nonatomic,copy)DetailEntity *entity;
 @end

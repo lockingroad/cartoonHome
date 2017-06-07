@@ -9,8 +9,9 @@
 #import "CartoonManager.h"
 #import "CartoonEntity.h"
 #import <RXApiServiceEngine.h>
-#import "CartoonEntity.h"
 #import "DetailEntity.h"
+#import "CommentEntity.h"
+#import "CommentInfo.h"
 #import <MJExtension.h>
 
 @implementation CartoonManager
@@ -51,4 +52,24 @@
         
     }];
 }
+
++(void)getComments:(NSInteger)page successHandler:(void (^)(CommentEntity *))success failureHandler:(FailureHandler)failure
+{
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    [params setObject:@"167" forKey:@"id"];
+    [params setObject:@"1" forKey:@"page"];
+    [params setObject:@"" forKey:@"token"];
+    
+    [RXApiServiceEngine requestWithType:RequestMethodTypePost url:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/contents.php?ac=comment_list" parameters:params completionHanlder:^(id jsonData, NSError *error) {
+        
+        if(jsonData){
+            CommentEntity *entity=[CommentEntity mj_objectWithKeyValues:jsonData[@"data"]];
+            success(entity);
+            
+        }
+    }];
+
+}
+
+
 @end

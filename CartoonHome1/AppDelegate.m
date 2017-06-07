@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "XHNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -23,8 +24,11 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     ViewController *vc=[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
-    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
-    [self.window setRootViewController:nav];
+    
+    
+    XHNavigationController *fyNav=[[XHNavigationController alloc]initWithRootViewController:vc];
+//    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:vc];
+    [self.window setRootViewController:fyNav];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -12,7 +12,7 @@
 #import <Masonry.h>
 #import "CartoonVC.h"
 #import "EmptyVC.h"
-@interface HomeVC ()<DFSegmentViewDelegate>
+@interface HomeVC ()<DFSegmentViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)NSMutableArray *arrData;
 @end
 
@@ -20,6 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupSegmentView];
+    [self setupNavigation];
+    
+}
+
+
+-(void)setupSegmentView{
     
     DFSegmentView *segment = [[DFSegmentView alloc] initWithFrame:CGRectZero andDelegate:self andTitlArr:nil];
     
@@ -36,7 +44,7 @@
     
     
     segment.reloadTitleArr = self.arrData;
-//    segment.reloadTitleArr=@[@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新"];
+    //    segment.reloadTitleArr=@[@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新"];
     
     segment.tintColor=[UIColor blackColor];
     segment.headViewLinelColor=[UIColor redColor];
@@ -44,9 +52,59 @@
     [segment tintColorDidChange];
     
     [segment reloadData];
+}
+
+-(void)setupNavigation
+{
     self.view.backgroundColor=[UIColor yellowColor];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:[UIColor redColor] size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
     
+    
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGB(0x18a8f6) size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.titleView=[self recommendTitleView];
+    self.navigationItem.rightBarButtonItem=[UIBarButtonItem rx_barBtnItemWithNmlImg:@"icon_mine" hltImg:@"icon_mine" target:self action:@selector(rightClick)];
+    
+    self.navigationItem.leftBarButtonItem=[UIBarButtonItem rx_barBtnItemWithNmlImg:@"icon_download" hltImg:@"icon_download" target:self action:@selector(leftClick)];
+    
+    
+}
+-(void)rightClick{
+    _mBloRight();
+}
+-(void)leftClick{
+    _mBloLeft();
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGB(0x18a8f6) size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
+}
+#pragma mark - privite
+- (UIView *)recommendTitleView {
+    
+    CGFloat titleW;
+    if (IS_IPHONE_5) {
+        titleW = kScreen_Width * 0.688 - 10;
+    }else {
+        titleW = kScreen_Width * 0.688;
+    }
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, titleW, 35)];
+    //    titleView.backgroundColor = [UIColor redColor];
+    
+    //searchBar
+    UISearchBar *searchBar = [UISearchBar setUpHomePageSearchBarWithFrame:titleView.frame];
+    searchBar.delegate = self;
+    [titleView addSubview:searchBar];
+    
+    //line
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(titleView.tjp_x, 34, titleView.tjp_width, 1)];
+    lineView.layer.borderWidth = 1;
+    lineView.layer.borderColor = Global_Yellow_Color.CGColor;
+    [titleView addSubview:lineView];
+    
+    return titleView;
 }
 
 - (UIViewController *)superViewController {

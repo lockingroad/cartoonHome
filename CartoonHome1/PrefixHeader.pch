@@ -20,4 +20,14 @@
 #import <Masonry.h>
 #import "CartoonManager.h"
 
+
+#import "PublicHeader.h"
+#import "UIBarButtonItem+TJPItem.h"
+#import "UIView+TJPExtension.h"
+#import "UIColor+XHExtension.h"
+#import "UISearchBar+XHExtension.h"
+#import "UIImageView+XMGExtension.h"
+#import "UIImage+XMGImage.h"
+
+
 #endif /* PrefixHeader_pch */

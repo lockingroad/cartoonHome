@@ -10,4 +10,5 @@ pod 'MJRefresh', '~> 3.0.6'
 pod 'MJExtension', '~> 3.0.7'
 pod 'Masonry', '~> 0.6.3'
 pod 'YYWebImage', '~> 0.9.11'
+pod 'RESideMenu','~> 4.0.7'
 end

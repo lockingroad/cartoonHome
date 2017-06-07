@@ -4,7 +4,7 @@
 //
 //  Created by 刘然 on 2017/5/18.
 //  Copyright © 2017年 刘然. All rights reserved.
-//
+//  刷新下拉时候的 引用使用unsage retain
 
 #import "CartoonVC.h"
 #import "CartoonEntity.h"
@@ -29,7 +29,7 @@
 {
     [self.view addSubview:self.tableView];
     __unsafe_unretained UITableView *tableView=self.tableView;
-    __weak typeof(self)weakSelf=self;
+    __weak typeof(self)weakSelf=self;//内部block中的都用弱引用?  调用了self的方法?
     tableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadDataFromStart:YES];
         
@@ -41,7 +41,6 @@
     }];
 }
 -(void)loadData{
-
     [self loadDataFromStart:YES];
 }
 
@@ -69,8 +68,6 @@
         NSLog(@"失败了");
         
     }];
-    
-    
 }
 
 
@@ -83,13 +80,13 @@
         _tableView.dataSource=self;
         _tableView.separatorStyle=UITableViewCellAccessoryNone;
         _tableView.showsVerticalScrollIndicator=NO;
-        _tableView.rowHeight=264;
+        _tableView.rowHeight=234;
 //        _tableView.height-=49;
         [_tableView setHidden:YES];
     }
     return _tableView;
 }
-
+//通常都是1个section  n个row
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -108,6 +105,7 @@
     cell.info=info;
     return cell;
 }
+//数组初始化的 经典方式!
 -(NSMutableArray *)dataArray
 {
     if(!_dataArray){

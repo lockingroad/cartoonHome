@@ -19,6 +19,7 @@
         self.selectionStyle=UITableViewCellSelectionStyleNone;
         [self initView];
     }
+    self.backgroundColor=[UIColor grayColor];
     return self;
 }
 
@@ -26,14 +27,20 @@
 {
     WS(weakSelf)
     UIView *topView=[[UIView alloc]init];
-    topView.backgroundColor=[UIColor redColor];
+    [self.contentView addSubview:topView];
     [topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.contentView.top);
+        make.top.equalTo(self.contentView.mas_top);
         make.width.mas_equalTo(self.contentView.width);
         make.height.mas_equalTo(@30);
     }];
     
     UIWebView *webView=[[UIWebView alloc]init];
+    [self.contentView addSubview:webView];
+
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(topView.mas_bottom);
+        make.left.equalTo(self.contentView.mas_left).offset(10);
+    }];
     [webView.scrollView addObserver:self
                          forKeyPath:@"contentSize"
                             options:NSKeyValueObservingOptionNew
@@ -42,9 +49,18 @@
     webView.delegate=self;
     webView.userInteractionEnabled=NO;
     webView.scrollView.bounces=NO;
-    [self.contentView addSubview:webView];
     
     weakSelf.web=webView;
+    
+    UILabel *tLabel=[[UILabel alloc]init];
+    [self.contentView addSubview:tLabel];
+    tLabel.font=[UIFont systemFontOfSize:14];
+    tLabel.text=@"以上!";
+    tLabel.textColor=[UIColor blueColor];
+    [tLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(webView.mas_bottom);
+        
+    }];
 }
 
 -(void)setWebContent:(NSString *)webContent

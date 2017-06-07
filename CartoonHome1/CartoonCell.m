@@ -10,9 +10,11 @@
 #import "CartoonsInfo.h"
 #import <Masonry.h>
 #import <UIImageView+WebCache.h>
+#import "TJPStarScoreView.h"
 
 @interface CartoonCell ()
 @property(nonatomic,weak)UILabel *label;
+@property(nonatomic,strong)TJPStarScoreView *scoreView;
 @end
 @implementation CartoonCell
 
@@ -37,10 +39,9 @@
         [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.mas_equalTo(self.contentView);
             make.height.mas_equalTo(200);
+            make.bottom.mas_equalTo(self.contentView.mas_bottom);
             
         }];
-        
-        
         
         UIView *bottomView=[[UIView alloc]init];
         [self.contentView addSubview:bottomView];
@@ -66,24 +67,42 @@
             make.left.mas_equalTo(bottomView.left).with.offset(10);
         }];
         
+       
         UILabel *levelLable=[[UILabel alloc]init];
-    
         
     
         levelLable.font=[UIFont systemFontOfSize:11];
         levelLable.textColor=kUIColorFromRGB(0xffffff);
         [bottomView addSubview:levelLable];
         levelLable.text=@"难度系数";
+        
+        TJPStarScoreView *scoreView=[[TJPStarScoreView alloc]initWithFrame:CGRectMake(kScreenWidth - (kScoreViewW + 11), 200, kScoreViewW, 16) numberOfStarCount:5];
+        [bottomView addSubview:scoreView];
+        
+        
         [levelLable mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(bottomView);
-            make.right.mas_equalTo(bottomView).with.offset(-20);
-            
+            make.right.mas_equalTo(scoreView.mas_left);
         }];
-
+        
+        
+       
+        
+        [scoreView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(@70);
+            make.height.mas_equalTo(@40);
+            make.top.mas_equalTo(levelLable.mas_top);
+            make.right.mas_equalTo(bottomView.mas_right).with.offset(-10);
+//            make.right.mas_equalTo(bottomView).width.offset(-10);
+        }];
+//
+////        scoreView.backgroundColor=[UIColor redColor];
+//        [scoreView setScore:3.0 isAnimation:NO];
     }
     return self;
     
 }
+
 -(void)setInfo:(CartoonsInfo *)info
 {
     
