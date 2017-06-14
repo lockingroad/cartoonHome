@@ -14,16 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.0.0-beta.2)
   - AFNetworking/UIKit (3.0.0-beta.2):
     - AFNetworking/NSURLSession
-  - DOUAudioStreamer (0.2.11)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - GVUserDefaults (1.0.2)
-  - LCActionSheet (1.2.3)
+  - LCActionSheet (3.2.1):
+    - Masonry (~> 1.0.2)
   - Mantle (1.5.5):
     - Mantle/extobjc (= 1.5.5)
   - Mantle/extobjc (1.5.5)
-  - Masonry (0.6.4)
+  - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.0.8)
   - RESideMenu (4.0.7)
@@ -65,12 +65,11 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
-  - DOUAudioStreamer (= 0.2.11)
   - FMDB (~> 2.5)
   - GVUserDefaults
   - LCActionSheet
   - Mantle (= 1.5.5)
-  - Masonry (~> 0.6.3)
+  - Masonry
   - MJExtension (~> 3.0.7)
   - MJRefresh (~> 3.0.6)
   - RESideMenu (~> 4.0.7)
@@ -87,12 +86,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: e3639f8310904c9888ddf03a2fa585633594a6e3
-  DOUAudioStreamer: 8aefc3e80eb6c01ec89fa3c30743c660e8c55bae
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
-  LCActionSheet: 690882cd8b9a6713f1b2881c3bb2c7f11954d034
+  LCActionSheet: 682cee97cf7e8183281278932f8a9a74eb4f63ba
   Mantle: 1b29072a707453975b200a173cf77ec1e2810b75
-  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
@@ -105,6 +103,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 0c2e14728b5783000ac5a2db08bb10fa7065dad6
 
-PODFILE CHECKSUM: d47790dab79224537ed0ccdfc58c1b26bdc04c97
+PODFILE CHECKSUM: 77583e9d106428cf18ef1f96aba9840b160feecf
 
 COCOAPODS: 1.2.1

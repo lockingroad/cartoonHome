@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DOUAudioStreamer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,7 +92,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>106E848F87EC86CD6F3317954D91210D</key>
+		<key>13D037021F07C60F683572A6CD0CF03D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19DFAA45297969CA95EDADD79E42E8D2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>303A730D67FEC780F186E0C811119E8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,17 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3DE8459BB466A6D7ECFFBFC693C899C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>496643A0C6647A237EA495B023CFA1A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C1CEEA8F4D46EF018727F7BFDC1868C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5CE6AF1A65DDC4DF70745051D8ACFA30</key>
+		<key>6B681631F257D4B26E7C4C3705B41DED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,17 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A389536C83F86877E93814D199881C6</key>
+		<key>876A286AA30A713448CCC35FD02274DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EE59F076CE92B76B17731DF341FB376</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<key>8E3EA30E8FF832AD3F54F72118A72FA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,17 +152,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9A3B973F593B65AAA294552DBCDF0B5</key>
+		<key>B6059AC0CAE6D670E94C77F095257108</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1548EE9AECC8E58C723DC98C962F2C1</key>
+		<key>CAD86121A55725C5D7098D035F900EEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BBE5CE3766C4B46BA9AA05EF2B4BF9DE</key>
+		<key>CB624C27506388A25B44B3C4777159E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,17 +172,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1A4ECEC7D891426E87A55E2C17BEAF5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7EFA7D065763ED0A49A6D1EB2C401DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DBDFA8B56E5259137567DEA1E6FC5B7B</key>
+		<key>D575579D71B6EEB7941FB315B9717345</key>
 		<dict>
 			<key>primary</key>
 			<true/>

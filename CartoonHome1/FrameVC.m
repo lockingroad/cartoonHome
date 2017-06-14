@@ -20,6 +20,12 @@
 #import "MineViewController.h"
 #import "XHNavigationController.h"
 #import "MineViewController.h"
+#import "UserInfoViewController.h"
+
+#import "LoginViewController.h"
+#import "PlayVC.h"
+#import "CartoonAudioEntity.h"
+#import "CacheTool.h"
 
 @interface FrameVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
@@ -89,21 +95,6 @@
     
     [RXApiServiceEngine requestWithType:RequestMethodTypeGet url:url parameters:params completionHanlder:^(id jsonData, NSError *error) {
         if(jsonData){
-//            NSLog(@"jsondata_>%@",jsonData);
-            
-//            NSArray *arr=[CartoonsInfo mj_objectArrayWithKeyValuesArray:jsonData[@"data"]];
-//            CartoonsInfo *info=arr[0];
-//            NSLog(@"info的值是%@",info.picbookname);
-            
-            
-            
-//            [CartoonEntity mj_setupObjectClassInArray:^NSDictionary *{
-//                return @{
-//                         @"data" : @"CartoonsInfo"
-//                         };
-//                
-//            }];
-            
             CartoonEntity *entity=[CartoonEntity mj_objectWithKeyValues:jsonData];
             long i=entity.data.count;
             
@@ -117,19 +108,8 @@
 }
 - (IBAction)btn2:(id)sender {
     NSLog(@"打印了");
-//    NSString *url=@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/homepage.php?ac=homepages&functions=latest&page=0";
-//    [_tjpManager request:RequestTypeGet urlStr:url parameter:nil resultBlock:^(id responseObject, NSError *error) {
-//        
-//        NSLog(@"response%@",responseObject);
-//    }];
-    
     MineViewController *mineVC=[[MineViewController alloc]init];
-    [self presentViewController:mineVC animated:YES completion:^{
-        
-        
-    }];
-    
-    
+    [self.navigationController pushViewController:mineVC animated:NO];
 
 }
 
@@ -139,7 +119,10 @@
 
     HomeVC *home=[[HomeVC alloc]init];
     XHNavigationController *nav=[[XHNavigationController alloc]initWithRootViewController:home];
-    RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:[[MineViewController alloc]init]];
+    
+    MineViewController *mineVC=[[MineViewController alloc]init];
+    XHNavigationController *mineNav=[[XHNavigationController alloc]initWithRootViewController:mineVC];
+    RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:mineNav];
     sideMenu.view.backgroundColor=[UIColor whiteColor];
     sideMenu.delegate=self;
     sideMenu.contentViewShadowEnabled=NO;
@@ -180,6 +163,60 @@
     [self.navigationController pushViewController:headViewVC animated:headViewVC];
     
     
+}
+- (IBAction)btn5:(id)sender {
+    
+    UserInfoViewController *userVC=[[UserInfoViewController alloc]init];
+    [self.navigationController presentViewController:userVC animated:YES completion:^{
+        
+        
+    }];
+
+    
+}
+- (IBAction)btn6:(id)sender {
+    
+    LoginViewController *loginVC=[[LoginViewController alloc]init];
+    XHNavigationController *nav=[[XHNavigationController alloc]initWithRootViewController:loginVC];
+    [self presentViewController:nav animated:YES completion:^{
+        
+        
+    }];
+}
+- (IBAction)btn7:(id)sender {
+    PlayVC *playVC=[[PlayVC alloc]init];
+    [self presentViewController:playVC animated:NO completion:^{
+        
+        
+    }];
+}
+- (IBAction)btn8:(id)sender {
+    
+//    [RXApiServiceEngine requestWithType:RequestMethodTypeGet url:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/plays.php?ac=play_view&rand=154" parameters:nil completionHanlder:^(id jsonData, NSError *error) {
+//        CartoonAudioEntity *entity=[CartoonAudioEntity mj_objectWithKeyValues:jsonData];
+//        CartoonAudioInfo *info=entity.data[0];
+//        AudioInfo *audioInfo=info.audio[0];
+//        NSString *audioUrl=audioInfo.audioname[0];
+//        NSLog(@"audio--->%@",audioUrl);
+//        
+//    }];
+    
+    [CartoonManager audioEntity:@"" successHandler:^(CartoonAudioEntity *entity) {
+        CartoonAudioEntity *test=entity;
+        
+        NSLog(@"--->%@",test);
+        
+        NSData *data = [CacheTool getCacheFileName: @"123"];
+        
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        CartoonAudioEntity *cacheEntity=[CartoonAudioEntity mj_objectWithKeyValues:jsonDict];
+        NSLog(@"---->%@",cacheEntity);
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
 }
 
 @end

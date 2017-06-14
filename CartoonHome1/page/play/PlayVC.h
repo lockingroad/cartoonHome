@@ -11,7 +11,7 @@
 @interface PlayVC : UIViewController
 
 // 保存数据的数组
-@property (nonatomic, strong) NSMutableArray * myARR;
+@property (nonatomic, strong) NSMutableArray * audioInfos;
 - (void)playWithUrl:(NSString *)url ;
 
 /** 播放 */
