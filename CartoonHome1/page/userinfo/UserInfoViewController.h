@@ -1,0 +1,13 @@
+//
+//  UserInfoViewController.h
+//  Play
+//
+//  Created by 陈 on 2017/5/31.
+//  Copyright © 2017年 huiben. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UserInfoViewController : UIViewController
+
+@end

@@ -60,8 +60,9 @@ static NSString *commentsCell=@"commentCell";
         self.commentData=entity;
     
         CommentInfo *info=entity.comments[0];
-        NSLog(@"hbid%@",info.hbid)
+        NSLog(@"hbid%@",info.hbid);
         [self.dataArr addObjectsFromArray:entity.comments];
+        
         
         NSLog(@"daxn....%ld",self.dataArr.count);
         

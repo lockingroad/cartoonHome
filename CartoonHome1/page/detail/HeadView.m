@@ -135,7 +135,8 @@
     }];
     
     [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(self.width, 1));
+        make.width.mas_equalTo(self.mas_width);
+        make.height.mas_equalTo(@1);
         make.top.equalTo(self.degreeMsg.mas_bottom);
         make.right.left.equalTo(self);
     }];
@@ -198,7 +199,7 @@
 {
     
     CGFloat height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
-    NSLog(@"hei-->%f",height)
+    NSLog(@"hei-->%f",height);
     [_web mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.offset(height);
         

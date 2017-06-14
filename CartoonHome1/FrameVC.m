@@ -7,7 +7,6 @@
 //
 
 #import "FrameVC.h"
-#import <RXApiServiceEngine.h>
 #import <MJExtension.h>
 #import "TJPSessionManager.h"
 #import "CartoonsInfo.h"
@@ -93,18 +92,7 @@
     [params setObject:@"0" forKey:@"page"];
     NSLog(@"params%@",params);
     
-    [RXApiServiceEngine requestWithType:RequestMethodTypeGet url:url parameters:params completionHanlder:^(id jsonData, NSError *error) {
-        if(jsonData){
-            CartoonEntity *entity=[CartoonEntity mj_objectWithKeyValues:jsonData];
-            long i=entity.data.count;
-            
-            NSLog(@"数组的大小ui%ld",i);
-            for(CartoonsInfo *info in entity.data){
-                NSLog(@"img%@",info.picbookname);
-            }
-        }
-        
-    }];
+    
 }
 - (IBAction)btn2:(id)sender {
     NSLog(@"打印了");

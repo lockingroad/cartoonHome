@@ -63,8 +63,8 @@
         self.label=titleLabel;
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.centerY.mas_equalTo(bottomView.centerY);
-            make.left.mas_equalTo(bottomView.left).with.offset(10);
+            make.centerY.mas_equalTo(bottomView.mas_centerY);
+            make.left.mas_equalTo(bottomView.mas_left).with.offset(10);
         }];
         
        

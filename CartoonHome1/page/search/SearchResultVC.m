@@ -67,7 +67,7 @@ static NSString *const cellID=@"searchCell";
         self.page++;
         [self.rootTableView.mj_footer endRefreshing];
     } failureHandler:^(NSError *error) {
-        NSLog(@"失败了")
+        NSLog(@"失败了");
         
     }];
     

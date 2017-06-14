@@ -124,7 +124,7 @@
     }];
     
     [self.line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(self.width, 1));
+        make.size.mas_equalTo(CGSizeMake(self.tjp_width, 1));
         make.top.equalTo(self.degreeMsg.mas_bottom);
         make.right.left.equalTo(self);
     }];
