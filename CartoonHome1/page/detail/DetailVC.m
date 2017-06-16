@@ -17,8 +17,6 @@
 #import "XHToolBar.h"
 #import "SimpleEntity.h"
 
-
-static const CGFloat headViewHei=250;
 static const CGFloat kHeaderViewH = 250;
 static NSString *commentsCell=@"commentCell";
 
@@ -38,8 +36,6 @@ static NSString *commentsCell=@"commentCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     [self addNotification];
     [self settingNavigation];
     [self initView];
@@ -123,9 +119,7 @@ static NSString *commentsCell=@"commentCell";
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"index-->%ld--->%ld",indexPath.row,indexPath.section);
-    
+{    
     XHCommentCell *cell=[tableView dequeueReusableCellWithIdentifier:commentsCell];
     
     if(self.dataArr){
@@ -170,7 +164,6 @@ static NSString *commentsCell=@"commentCell";
 -(XHToolBar *)toolBar
 {
     if(!_toolBar){
-//        CGFloat originY=self.navigationController.navigationBar.translucent?(kScreenHeight-kToolBarHeight):(kScreenHeight-(kNavigationBarHeight+kToolBarHeight));
         CGFloat originY=(kScreenHeight-kToolBarHeight);
         
         _originY=originY;
@@ -243,6 +236,10 @@ static NSString *commentsCell=@"commentCell";
 }
 
 
+/**
+
+ 键盘的展开和收回
+ */
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
     CGRect keyboardRect = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -258,19 +255,20 @@ static NSString *commentsCell=@"commentCell";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
     CGFloat offset = _tableView.contentOffset.y;
     
     if (offset > kNavigationBarHeight) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithNavigationBgColor:[UIColor colorWithRed:0 / 255.0f green:0 / 255.0f blue:0 / 255.0f alpha:offset / kHeaderViewH]] forBarMetrics:UIBarMetricsDefault];
-        [self updateNavigationItemWithLeftImage:@"detail_back" andRightImage:@"detail_comment"];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGBA(0x18a8f6, offset / kHeaderViewH) size:CGSizeMake(10, 10)] forBarMetrics:UIBarMetricsDefault];
         self.title = @"haha";
     }else
     {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithNavigationBgColor:[UIColor colorWithRed:0 / 255.0f green:0 / 255.0f blue:0 / 255.0f alpha:0]] forBarMetrics:UIBarMetricsDefault];
-        [self setNavigationItemWithLeftImage:@"detail_back" andRightImage:@"detail_comment"];
+        
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGBA(0x18a8f6,0) size:CGSizeMake(10, 10)] forBarMetrics:UIBarMetricsDefault];
         self.title = nil;
     }
 }
@@ -280,6 +278,11 @@ static NSString *commentsCell=@"commentCell";
     self.navigationController.navigationBar.translucent = NO;
 }
 
+
+/**
+ 
+重置一下导航栏
+ */
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -287,7 +290,7 @@ static NSString *commentsCell=@"commentCell";
     [self hideNavigationBar];
     
     if (self.tableView.contentOffset.y > 100) { //tableView 偏移量如果超过100 设置颜色
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithNavigationBgColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithNavigationBgColor:kUIColorFromRGB(0x18a8f6)] forBarMetrics:UIBarMetricsDefault];
     }
     
 }
