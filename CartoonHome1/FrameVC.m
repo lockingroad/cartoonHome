@@ -107,7 +107,7 @@
 
     HomeVC *home=[[HomeVC alloc]init];
     XHNavigationController *nav=[[XHNavigationController alloc]initWithRootViewController:home];
-    
+    [nav setupBackPanGestureIsForbiddden:NO];
     MineViewController *mineVC=[[MineViewController alloc]init];
     XHNavigationController *mineNav=[[XHNavigationController alloc]initWithRootViewController:mineVC];
     RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:mineNav];

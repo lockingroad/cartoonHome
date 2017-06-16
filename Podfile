@@ -23,4 +23,5 @@ pod 'GVUserDefaults'
 pod 'SVProgressHUD'
 pod 'Mantle', '1.5.5'
 pod 'LCActionSheet'
+pod 'SWTableViewCell', '~> 0.3.7'
 end

@@ -13,7 +13,7 @@
 #import "CartoonVC.h"
 #import "EmptyVC.h"
 #import "SearchVC.h"
-#import "LocalListView.h"
+#import "LocaleVC.h"
 @interface HomeVC ()<DFSegmentViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)NSMutableArray *arrData;
 @end
@@ -76,8 +76,7 @@
 }
 -(void)leftClick{
     _mBloLeft();
-    
-    LocalListView *local =[[LocalListView alloc] init];
+    LocaleVC *local =[[LocaleVC alloc] init];
     [self.navigationController pushViewController:local animated:YES];
 }
 
