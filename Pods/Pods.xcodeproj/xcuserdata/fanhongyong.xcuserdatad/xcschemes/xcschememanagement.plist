@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GVUserDefaults.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,6 +92,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>24419BF819DDE9FD4EA2E70D4E044C90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>291E2FDCE32C8ABF026B77E813015229</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>325E0F928F4D0842ECDF259F63F1D842</key>
 		<dict>
 			<key>primary</key>
@@ -107,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44ACA61F5DCF6724F0557BAF92539CC2</key>
+		<key>47C8B209B118129DAE009DE16C7B6647</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +127,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79CE2627D416271591716BA3AB1470CA</key>
+		<key>8662E27202EE02C619A296C92A76D391</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>807F3AA585DFC242D7A21094424619B1</key>
+		<key>879C6B4A4829C0E25FA6544627479CCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
+		<key>9251E40527E386C2296F54E4FC60358B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9C382D677ED0B6B11B5C58F617FD2C9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,42 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8F15C9414AF6813864EA7554BBD6921</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ADAF2CF7E618DBF72FB0EFF00C9DAE43</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B3D8CE254A6ECE89FA23AF48DD727C39</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D07D474B199FBF6F1E9C0D84C2ACDDEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA5737E13FBAD585C255C1EAC7B67BD4</key>
+		<key>D5A560F4B609CDA0CF4F9D3628021251</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F056A907AE3AA1425C8F27D44FB8F1A3</key>
+		<key>D8E01949AB017DA52A634074787ADE32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5797AC09337F8122BDF1F8B0040EA73</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FAB20C168664526FC791066ADDAEA90B</key>
+		<key>DD4F8224929BF5E5AE964C264F1C3D7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
