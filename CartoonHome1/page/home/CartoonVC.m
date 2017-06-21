@@ -18,7 +18,19 @@
 @end
 @implementation CartoonVC
 
-
+-(instancetype)initWithTitleID:(NSString *)title
+{
+    if(self=[self init]){
+        self.titleID=title;
+        //待改掉
+        if([title isEqualToString:@"series"]){
+            self.titleID=@"latest";
+        }else if([title isEqualToString:@"lasted"]){
+            self.titleID=@"latest";
+        }
+    }
+    return self;
+}
 -(void)viewDidLoad
 {
     [self setupSubView];
@@ -49,7 +61,10 @@
     if(boolean){
         self.page=1;
     }
-    [CartoonManager getCartoonEntity:self.page successHandler:^(CartoonEntity *entity) {
+    NSLog(@"%@",self.titleID);
+    [CartoonManager getCartoonEntity:self.page
+                             titleID:self.titleID
+                      successHandler:^(CartoonEntity *entity) {
         NSLog(@"num%ld",entity.data.count);
         if(boolean){
             [self.dataArray removeAllObjects];
@@ -99,8 +114,6 @@
 {
     CartoonCell *cell=[CartoonCell cellWithTableView:tableView];
     CartoonsInfo *info=self.dataArray[indexPath.row];
-    
-
     NSLog(@"infoImg%@",info.picbookapiimg);
     cell.info=info;
     return cell;
@@ -117,6 +130,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailVC *detail=[[DetailVC alloc]init];
+    CartoonsInfo *info=self.dataArray[indexPath.row];
+    detail.cartoonID=info.id;
     [self.navigationController pushViewController:detail animated:NO];
     
 }

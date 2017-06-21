@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MineViewController : UIViewController
-
+typedef void (^logout) ();
+@interface MineVC : UIViewController
+@property(nonatomic,strong)logout logoutBlock;
 @end

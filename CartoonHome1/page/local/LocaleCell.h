@@ -7,7 +7,8 @@
 //
 
 #import <SWTableViewCell/SWTableViewCell.h>
-
+#import "DetailEntityStore.h"
 @interface LocaleCell : SWTableViewCell
 +(instancetype)cellWithTableView:(UITableView *)tableview reuseID:(NSString *)reuseID;
+-(void)updateData:(DetailEntityStore *)entity;
 @end

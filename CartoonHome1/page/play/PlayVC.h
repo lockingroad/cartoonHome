@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^downLoadDone)();
 @interface PlayVC : UIViewController
+
 
 // 保存数据的数组
 @property (nonatomic, strong) NSMutableArray * audioInfos;
+@property(nonatomic,strong)NSString *rand;
+@property(nonatomic,copy)downLoadDone mDownLoadDone;
 - (void)playWithUrl:(NSString *)url ;
 
 /** 播放 */
@@ -21,6 +24,6 @@
 /** 停止播放/清空播放器 */
 - (void)stopVideo;
 
--(void) playNextMusic ;
+- (void)playNextMusic;
 @end
 

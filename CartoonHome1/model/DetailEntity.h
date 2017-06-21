@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CoreModel.h"
 
 @interface DetailEntity : NSObject
 @property(nonatomic,strong)NSString *id;
@@ -17,5 +18,6 @@
 @property(nonatomic,strong)NSString *sex;
 @property(nonatomic,strong)NSString *content;
 @property(nonatomic,strong)NSString *ueditor;
+@property(nonatomic,strong)NSString *rand;
 
 @end

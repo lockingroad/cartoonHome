@@ -18,13 +18,21 @@
 
 #import "MineViewController.h"
 #import "XHNavigationController.h"
-#import "MineViewController.h"
+#import "MineVC.h"
 #import "UserInfoViewController.h"
 
 #import "LoginViewController.h"
 #import "PlayVC.h"
 #import "CartoonAudioEntity.h"
 #import "CacheTool.h"
+#import "DetailEntity.h"
+
+#import "DetailEntityStore.h"
+#import "ViewController.h"
+#import "BaseNavVC.h"
+#import "UserEntity.h"
+#import "TitleEntity.h"
+#import "UserEntity1.h"
 
 @interface FrameVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *mImg;
@@ -35,7 +43,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+
     _tjpManager=[[TJPSessionManager alloc]init];
     
     
@@ -83,32 +92,66 @@
 }
 
 - (IBAction)btn1:(id)sender {
-    NSLog(@"打印了");
-    NSString *url=@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/homepage.php";
+    NSMutableDictionary *params=[[NSMutableDictionary alloc]init];
+    [params setObject:@"123123" forKey:@"password"];
+    [params setObject:@"liu30" forKey:@"username"];
+    [PPNetworkHelper POST:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/passport.php?ac=login" parameters:params success:^(id responseObject) {
+        UserEntity *entity=[UserEntity mj_objectWithKeyValues:responseObject];
+        NSLog(@"%@",entity);
+        if(entity.status){
+            NSLog(@"finish!!");
+        }
+    } failure:^(NSError *error) {
+        
+        
+    }];
     
-    NSMutableDictionary *params= [[NSMutableDictionary alloc]init];
-    [params setObject:@"homepages" forKey:@"ac"];
-    [params setObject:@"latest" forKey:@"functions"];
-    [params setObject:@"0" forKey:@"page"];
-    NSLog(@"params%@",params);
+}
+- (IBAction)btn8:(id)sender {
     
+    
+    [PPNetworkHelper GET:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/homepage.php?ac=homepage_titles" parameters:nil success:^(id responseObject) {
+        TitleEntity *entity=[TitleEntity mj_objectWithKeyValues:responseObject];
+        NSLog(@"%@",entity);
+        if(entity.status){
+            NSLog(@"成功了");
+        }
+    } failure:^(NSError *error) {
+        
+        
+    }];
+    [PPNetworkHelper GET:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/homepage.php?ac=homepages&functions=latest&page=0" parameters:nil success:^(id responseObject) {
+        
+        if(responseObject){
+            CartoonEntity *entity=[CartoonEntity mj_objectWithKeyValues:responseObject];
+            if(entity.status){
+                NSLog(@" 主页列表finish");
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
     
 }
 - (IBAction)btn2:(id)sender {
-    NSLog(@"打印了");
-    MineViewController *mineVC=[[MineViewController alloc]init];
-    [self.navigationController pushViewController:mineVC animated:NO];
+    
+    ViewController *vc=[[ViewController alloc]init];
+    BaseNavVC *nav=[[BaseNavVC alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:NO completion:^{
+        
+    }];
 
 }
 
 - (IBAction)btn3:(id)sender {
     
-//    [self.navigationController pushViewController:[[HomeVC alloc]init] animated:NO];
-
     HomeVC *home=[[HomeVC alloc]init];
     XHNavigationController *nav=[[XHNavigationController alloc]initWithRootViewController:home];
-    [nav setupBackPanGestureIsForbiddden:NO];
-    MineViewController *mineVC=[[MineViewController alloc]init];
+    [nav setupBackPanGestureIsForbiddden:YES];//手势pop
+    
+    MineVC *mineVC=[[MineVC alloc]init];
     XHNavigationController *mineNav=[[XHNavigationController alloc]initWithRootViewController:mineVC];
     RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:nav leftMenuViewController:nil rightMenuViewController:mineNav];
     sideMenu.view.backgroundColor=[UIColor whiteColor];
@@ -121,7 +164,13 @@
         
         
     }];
+
+    mineVC.logoutBlock = ^{
+      
+        [sideMenu hideMenuViewController];
+    };
     home.mBloRight=^{
+        
         [sideMenu presentRightMenuViewController];
     };
     home.mBloLeft = ^{
@@ -130,37 +179,25 @@
     };
 }
 - (IBAction)btn4:(id)sender {
-    NSLog(@"开始显示了图片下载");
-    [self.mImg fadeImageWithUrl:@"http://www.huibenabc.com/app/neahow/huibenapiimg/20170428125504.jpg"];
+
+    
+    UserEntity *entity=[[UserEntity alloc]init];
+    entity.status=[[NSNumber alloc]initWithInt:9];
+    entity.token=@"123123";
+    entity.userid=@"2929";
+    NSData *data=[NSKeyedArchiver archivedDataWithRootObject:entity];
+    [UserDefaults setObject:data forKey:@"test"];
+    
+    NSData *data2=[UserDefaults objectForKey:@"test"];
+    UserEntity *entity2=[NSKeyedUnarchiver unarchiveObjectWithData:data2];
+    NSLog(@"%@",entity2);
 }
 
 - (IBAction)clickHeadView:(id)sender {
-    HeadViewVC *headViewVC=[[HeadViewVC alloc]init];
-//    [self presentViewController:headViewVC animated:YES completion:^{
-//        
-//        
-//    }];
-//    
-//    RESideMenu *sideMenu=[[RESideMenu alloc]initWithContentViewController:[[HomeVC alloc]init] leftMenuViewController:nil rightMenuViewController:[[MineViewController alloc]init]];
-//    [self presentViewController:sideMenu animated:NO completion:^{
-//        
-//        
-//    }];
-    
-    
-    [self.navigationController pushViewController:headViewVC animated:headViewVC];
-    
-    
+
 }
 - (IBAction)btn5:(id)sender {
-    
-    UserInfoViewController *userVC=[[UserInfoViewController alloc]init];
-    [self.navigationController presentViewController:userVC animated:YES completion:^{
-        
-        
-    }];
 
-    
 }
 - (IBAction)btn6:(id)sender {
     
@@ -178,31 +215,22 @@
         
     }];
 }
-- (IBAction)btn8:(id)sender {
+
+- (IBAction)btn9:(id)sender {
+    [CartoonManager getDetailEntity:@"167" token:@"" successHandler:^(DetailEntity *entity) {
+        DetailEntityStore *storeEntity=[[DetailEntityStore alloc]initWithEntity:entity];
+        [DetailEntityStore insert:storeEntity resBlock:^(BOOL res) {
+            NSLog(@"%d",res);
+            
+        }];
+    } failureHandler:^(NSError *error) {
+        
+    }];
     
-//    [RXApiServiceEngine requestWithType:RequestMethodTypeGet url:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/plays.php?ac=play_view&rand=154" parameters:nil completionHanlder:^(id jsonData, NSError *error) {
-//        CartoonAudioEntity *entity=[CartoonAudioEntity mj_objectWithKeyValues:jsonData];
-//        CartoonAudioInfo *info=entity.data[0];
-//        AudioInfo *audioInfo=info.audio[0];
-//        NSString *audioUrl=audioInfo.audioname[0];
-//        NSLog(@"audio--->%@",audioUrl);
-//        
-//    }];
-    
-    [CartoonManager audioEntity:@"" successHandler:^(CartoonAudioEntity *entity) {
-        CartoonAudioEntity *test=entity;
-        
-        NSLog(@"--->%@",test);
-        
-        NSData *data = [CacheTool getCacheFileName: @"123"];
-        
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        
-        CartoonAudioEntity *cacheEntity=[CartoonAudioEntity mj_objectWithKeyValues:jsonDict];
-        NSLog(@"---->%@",cacheEntity);
-        
-    } failure:^(NSError *error) {
-        
+}
+- (IBAction)btn10:(id)sender {
+    [DetailEntityStore selectWhere:nil groupBy:nil orderBy:nil limit:nil selectResultsBlock:^(NSArray *selectResults) {
+        NSLog(@"%@",selectResults);
         
     }];
 }

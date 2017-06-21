@@ -46,11 +46,6 @@
 @property(nonatomic,strong)NSMutableArray *enIndex;
 @property(nonatomic,strong)NSMutableArray *cnIndex;
 
-
-
-
-#define kScreenWidth   [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight    [UIScreen mainScreen].bounds.size.height
 // 当前播放的位置
 @property (nonatomic) NSInteger currentIndex;
 //  是否播放
@@ -300,8 +295,8 @@
 // 获取数据
 -( void) loadData {
    
-    
-    [CartoonManager audioEntity:@"" successHandler:^(CartoonAudioEntity *entity) {
+    NSLog(@"rand%@",_rand);
+    [CartoonManager audioEntity:self.rand successHandler:^(CartoonAudioEntity *entity) {
         [self.audioInfos addObjectsFromArray:entity.data];
         
         NSMutableDictionary *dic=[entity dicFromData];
@@ -310,6 +305,7 @@
         [self.cnIndex addObjectsFromArray:dic[@"cnIndex"]];
         [self.cnArr addObjectsFromArray:dic[@"cnArr"]];
         [self setupUI:entity.title];
+        self.mDownLoadDone();
         
     } failure:^(NSError *error) {
         
@@ -368,8 +364,9 @@
 - (void)clickBtn{
     NSLog(@"点击返回");
     //    [self.navigationController popViewControllerAnimated:NO];
+     [self dismissModalViewControllerAnimated:YES];
     [self.videoPlayer stopVideo];
-    [self dismissModalViewControllerAnimated:YES];
+   
     
 }
 //下一页

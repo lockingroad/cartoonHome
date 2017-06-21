@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DetailEntity.h"
 typedef void(^viewUpdate)(CGFloat f);
+typedef void(^start)();
 @interface HeadView : UIView
 @property(nonatomic,copy)DetailEntity *entity;
 -(void)mockEntity;
 @property(nonatomic,strong)viewUpdate viewBlock;
+@property(nonatomic,strong)start startBlock;
 @end

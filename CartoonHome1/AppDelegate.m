@@ -18,14 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     FrameVC *vc=[[FrameVC alloc]initWithNibName:@"FrameVC" bundle:nil];
-    
-    
     XHNavigationController *fyNav=[[XHNavigationController alloc]initWithRootViewController:vc];
     [self.window setRootViewController:fyNav];
     [self.window makeKeyAndVisible];

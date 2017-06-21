@@ -29,9 +29,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6I-dT-qnt">
-                    <rect key="frame" x="47" y="138" width="32" height="30"/>
+                    <rect key="frame" x="38" y="138" width="50" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="btn2"/>
+                    <state key="normal" title="btnpop"/>
                     <connections>
                         <action selector="btn2:" destination="-1" eventType="touchUpInside" id="AUC-Sp-gE0"/>
                     </connections>
@@ -94,6 +94,22 @@
                     <state key="normal" title="btn8"/>
                     <connections>
                         <action selector="btn8:" destination="-1" eventType="touchUpInside" id="85e-Kz-HZG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sy2-eM-mHS">
+                    <rect key="frame" x="204" y="299" width="33" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="btn9"/>
+                    <connections>
+                        <action selector="btn9:" destination="-1" eventType="touchUpInside" id="CRu-4c-nSe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-FO-9cy">
+                    <rect key="frame" x="200" y="348" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="查数据"/>
+                    <connections>
+                        <action selector="btn10:" destination="-1" eventType="touchUpInside" id="gC1-Um-1HT"/>
                     </connections>
                 </button>
             </subviews>

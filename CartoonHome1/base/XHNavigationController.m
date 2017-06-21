@@ -10,16 +10,11 @@
 #import "XHNavBar.h"
 
 @interface XHNavigationController ()<UIGestureRecognizerDelegate>
-
 @end
-
 @implementation XHNavigationController
 {
     BOOL _isForbidden;
 }
-
-
-
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController
 {
     if (self = [super initWithRootViewController:rootViewController]) {
@@ -31,14 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setupBackPanGestureIsForbiddden:NO];
-    
+    [self setupBackPanGestureIsForbiddden:YES];
     [XHNavBar setGlobalBackGroundColor:kUIColorFromRGB(0x18a8f6) withTintColor:[UIColor whiteColor]];
-
     [XHNavBar setGlobalTextColor:[UIColor whiteColor] andFontSize:17.0f];
-    
-    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     //更新状态栏风格
@@ -61,27 +51,42 @@
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:gesture.delegate action:NSSelectorFromString(@"handleNavigationTransition:")];
     //为控制器的容器视图
     [gesture.view addGestureRecognizer:panGesture];
-   
     gesture.delaysTouchesBegan = YES;
     panGesture.delegate = self;
-    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    //需要过滤根控制器   如果根控制器也要返回手势有效, 就会造成假死状态
     if (self.childViewControllers.count == 1) {
         return NO;
     }
     if (_isForbidden) {
+        NSLog(@"禁止了NO");
         return NO;
     }
-    
-    return YES;
-    
+    NSLog(@"返回了yes");
+    return NO;
 }
 
+
+//获取侧滑返回手势
+- (UIScreenEdgePanGestureRecognizer *)screenEdgePanGestureRecognizer
+{
+    UIScreenEdgePanGestureRecognizer *screenEdgePanGestureRecognizer = nil;
+    if (self.view.gestureRecognizers.count > 0)
+    {
+        for (UIGestureRecognizer *recognizer in self.view.gestureRecognizers)
+        {
+            if ([recognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]])
+            {
+                screenEdgePanGestureRecognizer = (UIScreenEdgePanGestureRecognizer *)recognizer;
+                break;
+            }
+        }
+    }
+    return screenEdgePanGestureRecognizer;
+}
 
 #pragma mark - 重写父类方法拦截push方法
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -96,24 +101,13 @@
         [backButton sizeToFit];
         backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        
-        //当push的时候 隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
     }
     //先设置leftItem  再push进去 之后会调用viewdidLoad  用意在于vc可以覆盖上面设置的方法
     [super pushViewController:viewController animated:animated];
 }
-
-
 - (void)leftBarButtonItemClicked
 {
     [self popViewControllerAnimated:YES];
 }
-
-
-
-
-
-
-
 @end

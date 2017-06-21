@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CartoonEntity,DetailEntity,CommentEntity,SimpleEntity,CartoonAudioEntity;
+@class CartoonEntity,DetailEntity,CommentEntity,SimpleEntity,CartoonAudioEntity,TitleEntity,UserEntity,UserMsgEntity;
 
 typedef void (^CompleteHandler)(NSArray *dataArray,NSError *error);
 typedef void (^FailureHandler)(NSError *error);
 @interface CartoonManager : NSObject
 
 +(void)getCartoonEntity:(NSInteger)page
+                titleID:(NSString *)functions
          successHandler:(void(^)(CartoonEntity *entity))success
          failureHandler:(FailureHandler)failure;
 
@@ -21,7 +22,9 @@ typedef void (^FailureHandler)(NSError *error);
                  token:(NSString *)token
         successHandler:(void(^)(DetailEntity *entity))success
         failureHandler:(FailureHandler)failure;
-+(void)getComments:(NSInteger)page
++(void)getComments:(NSString *)cartoonID
+             token:(NSString *)token
+         page:(NSInteger )page
     successHandler:(void(^)(CommentEntity *entity))success
     failureHandler:(FailureHandler)failure;
 
@@ -47,4 +50,29 @@ typedef void (^FailureHandler)(NSError *error);
     successHandler:(void(^)(CartoonAudioEntity *entity))success
            failure:(FailureHandler)failure;
 
++(void)titles:(NSString *)arg
+successHandler:(void(^)(TitleEntity *entity))success
+      failure:(FailureHandler)failure;
+
++(void)detailList:(NSString *)arg
+   successhandler:(void(^)(NSArray *arr))success
+          failure:(FailureHandler)failure;
+
++(void)login:(NSString *)account
+         pwd:(NSString *)pwd
+successHandler:(void(^)(UserEntity *entity))success
+     failure:(FailureHandler)failure;
+
++(void)SDKLogin:(NSDictionary *)params
+ successHandler:(void(^)(UserEntity *entity))success
+        failure:(FailureHandler)failure;
+
++(void)reg:(NSString *)account
+         pwd:(NSString *)pwd
+successHandler:(void(^)(UserEntity *entity))success
+     failure:(FailureHandler)failure;
+
++(void)userMsg:(NSString *)token
+successHandler:(void(^)(UserMsgEntity *entity))success
+       failure:(FailureHandler)failure;
 @end

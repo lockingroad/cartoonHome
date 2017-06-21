@@ -10,4 +10,5 @@
 
 @interface DetailVC : UIViewController
 
+@property(nonatomic,strong)NSString *cartoonID;
 @end

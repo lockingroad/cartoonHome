@@ -308,7 +308,7 @@
 
     [self.loadedTimeRangeArr removeAllObjects];
     self.loadedTimeRangeArr = nil;
-    
+
 }
 
 #pragma mark - Observer

@@ -6,11 +6,12 @@
 //  Copyright © 2017年 刘然. All rights reserved.
 //
 
-#import "MineViewController.h"
+#import "MineVC.h"
 #import "UserInfoViewController.h"
 #import "XHNavigationController.h"
+#import "UserMsgEntity.h"
 
-@interface MineViewController ()
+@interface MineVC ()
 
 @property(nonatomic,strong) UIImageView *headImage;
 
@@ -22,22 +23,32 @@
 @property(nonatomic,strong)UIView *clearLine ;
 @property(nonatomic,strong)UIView *setingLine ;
 @property (nonatomic,strong) UIButton *btnlogout;
-
+@property(nonatomic,strong)UserMsgInfo *data;
 
 
 @end
 
-@implementation MineViewController
+@implementation MineVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
     [self setupConstraint];
-    self.view.backgroundColor=[UIColor whiteColor];
+    NSString *token=[CartoonHelper getToken];
+    if(token){
+        [CartoonManager userMsg:token successHandler:^(UserMsgEntity *entity) {
+            if(entity.status){
+                NSLog(@"成功了");
+                self.data=entity.userinfo;
+                [self updateUI];
+            }
+            
+        } failure:^(NSError *error) {
+            
+            
+        }];
+    }
     
-    
-    
-   
 }
 
 
@@ -122,6 +133,7 @@
     
     [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(40);
+        make.width.height.mas_equalTo(@35);
         make.centerX.lessThanOrEqualTo(self.view.mas_centerX);
     }];
 }
@@ -190,18 +202,21 @@
     }]];
     [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        NSLog(@"点击确认");
-        // 清除token
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user_token"];
-        // 关闭本页面
+        [CartoonHelper delToken];//删除了 token
+        _logoutBlock();
+
     }]];
+    
     
     [self presentViewController:alertController animated:YES completion:nil];
     
 }
 
 
-
+-(void)updateUI{
+    [self.headImage fadeImageWithUrl:self.data.headimg];
+    self.userName.text=self.data.username;
+}
 
 
 

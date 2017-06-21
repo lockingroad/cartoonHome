@@ -139,4 +139,12 @@
     }
     return _scoreView;
 }
+
+-(void)updateData:(DetailEntityStore *)entity
+{
+    [self.posterImg fadeImageWithUrl:entity.picbookapiimgx];
+    self.title.text=entity.picbookname;
+    self.yearOld.text=entity.sex;
+    [self.scoreView setScore:[entity.goutindex floatValue] isAnimation:NO];
+}
 @end

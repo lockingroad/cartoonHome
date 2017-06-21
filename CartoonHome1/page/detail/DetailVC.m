@@ -16,6 +16,8 @@
 #import "XHCommentCell.h"
 #import "XHToolBar.h"
 #import "SimpleEntity.h"
+#import "DetailEntityStore.h"
+#import "PlayVC.h"
 
 static const CGFloat kHeaderViewH = 250;
 static NSString *commentsCell=@"commentCell";
@@ -44,19 +46,18 @@ static NSString *commentsCell=@"commentCell";
     
 }
 -(void)loadData{
-    [CartoonManager getDetailEntity:@"" token:@"" successHandler:^(DetailEntity *entity) {
+    
+    NSLog(@"%@",_cartoonID);
+    [CartoonManager getDetailEntity:self.cartoonID token:@"" successHandler:^(DetailEntity *entity) {
         self.data=entity;
-        
     } failureHandler:^(NSError *error) {
         
         
     }];
     self.page=1;
-    [CartoonManager getComments:self.page successHandler:^(CommentEntity *entity) {
+    [CartoonManager getComments:self.cartoonID token:@"" page:self.page successHandler:^(CommentEntity *entity) {
         self.commentData=entity;
     
-        CommentInfo *info=entity.comments[0];
-        NSLog(@"hbid%@",info.hbid);
         [self.dataArr addObjectsFromArray:entity.comments];
         
         
@@ -67,8 +68,10 @@ static NSString *commentsCell=@"commentCell";
         [self.tableView reloadData];
     } failureHandler:^(NSError *error) {
         
+       
         
     }];
+
 }
 
 -(void)setData:(DetailEntity *)data
@@ -82,13 +85,29 @@ static NSString *commentsCell=@"commentCell";
         
     }];
     headView.viewBlock = ^(CGFloat f) {
-        
-        
         NSLog(@"hei----%f",f);
         CGRect newFrame = headView.frame;
         newFrame.size.height = newFrame.size.height + f/2;
         headView.frame = newFrame;
         [self.tableView setTableHeaderView: headView];
+    };
+    //跳转playvc  并且等待store
+    headView.startBlock = ^{
+        
+        
+        PlayVC *playVC=[[PlayVC alloc]init];
+        playVC.rand=_data.rand;
+        playVC.mDownLoadDone = ^{
+            DetailEntityStore *storeEntity=[[DetailEntityStore alloc]initWithEntity:_data];
+            NSLog(@"%@",storeEntity);
+//            [DetailEntityStore insert:storeEntity resBlock:^(BOOL res) {
+//                NSLog(@"成功了%d",res);
+//            }];
+        };
+        [self presentViewController:playVC animated:YES completion:^{
+            
+            
+        }];
     };
     [headView setEntity:_data];
     [_tableView reloadData];
@@ -113,13 +132,13 @@ static NSString *commentsCell=@"commentCell";
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   
+    
     return self.dataArr.count;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
     XHCommentCell *cell=[tableView dequeueReusableCellWithIdentifier:commentsCell];
     
     if(self.dataArr){
@@ -139,7 +158,7 @@ static NSString *commentsCell=@"commentCell";
         tableView.rowHeight=UITableViewAutomaticDimension;
         tableView.estimatedRowHeight=78;
         _tableView=tableView;
-
+        
         
         [_tableView registerNib:[UINib nibWithNibName:@"XHCommentCell" bundle:nil] forCellReuseIdentifier:commentsCell];
     }
@@ -148,8 +167,8 @@ static NSString *commentsCell=@"commentCell";
 -(UIView *)setUpHeadView
 {
     HeadView *topView=[[HeadView alloc]init];
-//    topView.size=CGSizeMake(kScreen_Width, 350);
-//    topView.entity=self.data;
+    //    topView.size=CGSizeMake(kScreen_Width, 350);
+    //    topView.entity=self.data;
     return topView;
 }
 
@@ -175,7 +194,7 @@ static NSString *commentsCell=@"commentCell";
             [weakSelf updateCommentDataWithContent:content];
             
         }];
-
+        
     }
     return _toolBar;
 }
@@ -237,7 +256,7 @@ static NSString *commentsCell=@"commentCell";
 
 
 /**
-
+ 
  键盘的展开和收回
  */
 - (void)keyboardWillChangeFrame:(NSNotification *)note
@@ -281,7 +300,7 @@ static NSString *commentsCell=@"commentCell";
 
 /**
  
-重置一下导航栏
+ 重置一下导航栏
  */
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

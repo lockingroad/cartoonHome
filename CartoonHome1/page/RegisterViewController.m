@@ -8,23 +8,19 @@
 //
 
 #import "RegisterViewController.h"
-
 #import "UITextField+XHExtension.h"
 #import "UIButton+XHExtension.h"
 #import "UIColor+ColorChange.h"
-#import "TJPNetworkUtils.h"
 #import "UIBarButtonItem+TJPItem.h"
 #import "NSArray+MASAdditions.h"
-
 #import "HBProtocolViewController.h"
+#import "UserEntity.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,weak) UITextField * nametext;
 @property(nonatomic,weak) UITextField * passwodtext;
 @property(nonatomic,weak) UITextField * confirmText;
-@property(nonatomic ,weak)UIButton* registered ;
-
-@property(nonatomic,strong)TJPNetworkUtils *networking;
+@property(nonatomic ,weak)UIButton* registered;
 @property (nonatomic, weak) UILabel *agreeLab;
 @property (nonatomic, weak) UILabel *protocolLab;
 @end
@@ -35,12 +31,12 @@
     [super viewDidLoad];
     [self setNavigationTitle];
     
-    [self  nametext];
+    [self nametext];
     [self passwodtext];
     [self confirmText];
     [self registered];
     [self agreeLab];
-    [self  protocolLab];
+    [self protocolLab];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
@@ -185,17 +181,23 @@
 //        [MBProgressHUD showMessage:@"密码长度应该在6-14个字符之间" inView:self.view];
 
     }else{
-        NSMutableDictionary * params = [NSMutableDictionary dictionary];
-        params[@"username"] = _nametext.text;
-        params[@"password"] =_passwodtext.text;
+        MJWeakSelf
+        NSString *account=_nametext.text;
+        NSString *pwd=_passwodtext.text;
+        [CartoonManager reg:account pwd:pwd successHandler:^(UserEntity *entity) {
+            if(entity.status){
+                [CartoonHelper insertToken:entity.token];
+                [weakSelf.navigationController popToRootViewControllerAnimated:NO];
+            }
+            
+        } failure:^(NSError *error) {
+            
+            
+        }];
+       
         
-        [self requestDataWithUrl:@"http://www.huibenabc.com/app/neahow/huibenapi/api1.0/passport.php?ac=register" parameter:params];
-   
         [_registered setBackgroundColor:[UIColor colorWithHexString:@"18A8F6"]];
     }
-
-    
-    
 }
 // 用户协议
 -(void) protocolLabelTap {
@@ -220,36 +222,5 @@
 
 
 }
-
-/** 数据请求*/
-- (void)requestDataWithUrl:(NSString *)urlStr parameter:(NSMutableDictionary *)params {
-    __weak typeof(self) weakSelf = self;
-    
-    weakSelf.networking = [[TJPNetworkUtils alloc]init];
-    [ weakSelf. networking requsetWithPath:urlStr withParams:params withCacheType:YBCacheTypeReturnCacheDataExpireThenLoad withRequestType:NetworkPostType withResult:^(id responseObject, NSError *error) {
-        if (!error) {
-            
-            
-            if([responseObject[@"status"] integerValue]){
-//                [MBProgressHUD showMessage:@"注册成功"inView:self.view];
-                
-                //保存token
-                [[NSUserDefaults standardUserDefaults] setObject: responseObject[@"token"] forKey:@"UserToken"];
-                // 获取 token
-                //                      NSString*strtoken=   [[NSUserDefaults standardUserDefaults]  objectForKey:@"UserToken"];
-                
-                [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-//                AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//                [delegate rootview];
-            }else{
-                
-//                [MBProgressHUD showMessage:@"注册失败,请重试"inView:self.view];
-            }
-        }
-    }];
-}
-// 返回首页
-
-
 
 @end

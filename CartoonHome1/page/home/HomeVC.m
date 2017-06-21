@@ -14,54 +14,66 @@
 #import "EmptyVC.h"
 #import "SearchVC.h"
 #import "LocaleVC.h"
+#import "TitleEntity.h"
+#import "TitleInfo.h"
+#import "LoginViewController.h"
 @interface HomeVC ()<DFSegmentViewDelegate,UISearchBarDelegate>
 @property(nonatomic,strong)NSMutableArray *arrData;
+@property(nonatomic,strong)DFSegmentView *segment;
+@property(nonatomic,strong)TitleEntity *entity;
+@property(nonatomic,strong)NSString *token;
 @end
 
 @implementation HomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupSegmentView];
     [self setupNavigation];
-    
+    [self loadData];
 }
 
+-(void)loadData{
 
+    [CartoonManager titles:nil successHandler:^(TitleEntity *entity) {
+        self.entity=entity;
+        NSMutableArray *arr=[NSMutableArray array];
+        for(TitleInfo *info in entity.data){
+            [arr addObject:info.title];
+        }
+        [self.arrData addObjectsFromArray:arr];
+        [self.segment reloadData];
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+
+    
+}
 -(void)setupSegmentView{
-    
-    DFSegmentView *segment = [[DFSegmentView alloc] initWithFrame:CGRectZero andDelegate:self andTitlArr:nil];
-    
-    
-    [self.view addSubview:segment];
-    
-    [segment mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.segment];
+    [self.segment mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         
         make.left.right.bottom.equalTo(self.view);
     }];
     
-    segment.delegate = self;
+    self.segment.delegate = self;
     
     
-    segment.reloadTitleArr = self.arrData;
+    self.segment.reloadTitleArr = self.arrData;
     //    segment.reloadTitleArr=@[@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新"];
-    
-    segment.tintColor=[UIColor blackColor];
-    segment.headViewLinelColor=[UIColor redColor];
-    segment.headViewTextLabelColor=[UIColor greenColor];
-    [segment tintColorDidChange];
-    
-    [segment reloadData];
+    self.segment.tintColor=[UIColor blackColor];
+    self.segment.headViewLinelColor=[UIColor redColor];
+    self.segment.headViewTextLabelColor=[UIColor greenColor];
+    [self.segment tintColorDidChange];
+    [self.segment reloadData];
 }
 
 -(void)setupNavigation
 {
     self.view.backgroundColor=[UIColor yellowColor];
-    
-    
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGB(0x18a8f6) size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
     
     self.navigationItem.titleView=[self recommendTitleView];
@@ -72,8 +84,17 @@
     
 }
 -(void)rightClick{
-    _mBloRight();
+    
+    _token=[CartoonHelper getToken];
+    if(_token.length){
+        _mBloRight();
+    }else{
+        LoginViewController *loginVC=[[LoginViewController alloc]init];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    
 }
+//直接跳转
 -(void)leftClick{
     _mBloLeft();
     LocaleVC *local =[[LocaleVC alloc] init];
@@ -84,6 +105,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setBackgroundImage:[UIImage rx_imageViewWithColor:kUIColorFromRGB(0x18a8f6) size:CGSizeMake(30, 30)] forBarMetrics:UIBarMetricsDefault];
+}
+
+-(DFSegmentView *)segment
+{
+    if(!_segment){
+        _segment = [[DFSegmentView alloc] initWithFrame:CGRectZero andDelegate:self andTitlArr:nil];
+    }
+    return _segment;
 }
 #pragma mark - privite
 - (UIView *)recommendTitleView {
@@ -107,30 +136,28 @@
     lineView.layer.borderWidth = 1;
     lineView.layer.borderColor = Global_Yellow_Color.CGColor;
     [titleView addSubview:lineView];
-    
     return titleView;
 }
 
 - (UIViewController *)superViewController {
-    
     return self;
 }
 
+//对应的cartoonVC
 - (UIViewController *)subViewControllerWithIndex:(NSInteger)index {
-    
-    CartoonVC *cartoon=[[CartoonVC alloc]init];
+    TitleInfo *info=[self.entity.data objectAtIndex:index];
+    CartoonVC *cartoon=[[CartoonVC alloc]initWithTitleID:info.title_id];
     return cartoon;
 }
 -(NSMutableArray *)arrData
 {
     if(!_arrData){
-        _arrData=[[NSMutableArray alloc]initWithObjects:@"推荐",@"系列绘本",@"学龄前",@"小学生",@"最新",nil];
+        _arrData=[NSMutableArray array];
     }
     return _arrData;
 }
 
 - (void)headTitleSelectWithIndex:(NSInteger)index {
-    
     
     NSLog(@"---%ld",index);
 }

@@ -27,6 +27,7 @@
 #import "UIImage+RXExtension.h"
 #import "UIBarButtonItem+RXExtension.h"
 #import "UIView+TJPExtension.h"
+#import "CartoonHelper.h"
 
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 #define BTColor(r,g,b) [UIColor  colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]

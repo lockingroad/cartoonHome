@@ -11,4 +11,6 @@
 @interface CartoonVC : UIViewController
 
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSString *titleID;
+-(instancetype)initWithTitleID:(NSString *)title;
 @end
